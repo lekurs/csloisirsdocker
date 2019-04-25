@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    {% block stylesheet %}
+        <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800|Playfair+Display:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/fh-3.1.4/r-2.2.2/datatables.min.css"/>
+        <link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+        <link href="{{ asset('/assets/vendors/bootstrap.css') }}"  rel="stylesheet">
+        <link href="{{ asset('/assets/css/admin/admin-layout.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/assets/css/global/floating-label.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/assets/css/global/overwrite-bootstrap.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/assets/fonts/font-awesome.css') }}" rel="stylesheet" />
+    {% endblock %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Si icone -->
+    {#<link rel="icon" type="image/ico" href="/images/ico-livre.ico" />#}
+{#    <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="images/velo-marqueur.png" /><!-->#}
+
+    {% block meta %}
+        <!-- Création des metatags réseaux sociaux -->
+        <!-- Metatags FB -->
+        <meta property="og:title" content="CSLOISIRS Créatifs" />
+        <meta property="og:type" content="CSLOISIRS Créatifs" />
+        <meta property="og:url" content="csloisirscreatifs.com" />
+        <meta property="og:description" content="CSLOISIRS Créatifs" />
+        <meta property="og:image" content="assets/images/public/" />
+
+        <!-- Metatag Twitter -->
+        <meta name="twitter:card" content="CSLOISIRS Créatifs" />
+        <meta name="twitter:tittle" content="CSLOISIRS Créatifs" />
+        <meta name="twitter:description" content="CSLOISIRS Créatifs" />
+    {% endblock %}
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+
+{% block body %}
+    {% block FlashMessage %}
+        {% for flash_message in app.flashes('success') %}
+            <div class="alert alert-success flash-message content">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+        {% for flash_message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+    {% endblock %}
+
+        <div class="admin-nav">
+        <div><img src="{{ asset('assets/images/home/logo-mout.svg') }}" alt="Mout Web Agency" class="img-fluid" /> </div>
+        <div class="admin-nav-container">
+            <a href="{{ path('admin') }}">
+                <div class="admin-nav-content">
+                    <div class="admin-nav-title">Accueil</div>
+                    <div><i class="fa fa-home fa-3x"></i> </div>
+                </div>
+            </a>
+            <div class="admin-nav-content">
+{#                activer ici le submenu#}
+                <div class="admin-nav-title">Produits</div>
+                <div><i class="fas fa-hippo fa-3x"></i></div>
+                <div class="admin-nav-submenu">
+                    <div class="admin-nav-submenu-link-container">
+                        <a href="#">
+                            <div>Voir les clients</div>
+                            <div><i class="fa fa-users fa-3x"></i> </div>
+                        </a>
+                    </div>
+                    <div class="admin-nav-submenu-link-container">
+                        <a href="#">
+                            <div>Ajouter</div>
+                            <div><i class="fa fa-plus fa-3x"></i> </div>
+                        </a>
+                    </div>
+                    <div class="admin-nav-submenu-link-container">
+                        <a href="#">
+                            <div>Voir les devis en cours</div>
+                            <div><i class="fa fa-calculator fa-3x"></i> </div>
+                        </a>
+                    </div>
+                    <div class="admin-nav-submenu-link-container">
+                        <a href="#">
+                            <div>Voir les factures</div>
+                            <div><i class="fa fa-money fa-3x"></i> </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-nav-content">
+                <div class="admin-nav-title">Paramètres</div>
+                <div><i class="fas fa-frog fa-3x"></i></div>
+                <div class="admin-nav-submenu">
+                    <div class="admin-nav-submenu-link-container">
+                        <a href="#">
+                            <div>Paramétrer l'application</div>
+                            <div><i class="fa fa-gear fa-3x"></i> </div>
+                        </a>
+                    </div>
+                    <div class="admin-nav-submenu-link-container"><a href="{{ path('categoryShow') }}">Les catégories</a></div>
+                    {#                        <div class="admin-nav-submenu-link-container">submenu8</div>#}
+                    {#                        <div class="admin-nav-submenu-link-container">submenu9</div>#}
+                    {#                        <div class="admin-nav-submenu-link-container">submenu10</div>#}
+                </div>
+            </div>
+            <div class="admin-nav-content">
+                <div class="admin-nav-title"><a href="{{ path('index') }}">Site Client</a></div>
+                <div><i class="fas fa-dragon fa-3x"></i></div>
+            </div>
+        </div>
+    </div>
+        <div class="admin-grid-container">
+        {% block container %}
+
+        {% endblock %}
+        <div class="admin-footer">Application réalisée par MOUT</div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+{#    <script src="https://code.jquery.com/jquery-3.3.1.min.js"#}
+{#                              integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="#}
+{#                              crossorigin="anonymous"></script>#}
+    <script src="{{ asset('assets/vendors/jquery.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap.bundle.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('assets/js/global/add-collectiontype-widget.js') }}"></script>
+    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="{{ asset('/assets/js/admin/admin-menu.js') }}"></script>
+    <script>$('.dropdown-toggle').dropdown()</script>
+{% endblock %}
+
+</body>
+</html>

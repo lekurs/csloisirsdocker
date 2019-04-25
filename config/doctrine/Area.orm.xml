@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+    <entity name="App\Domain\Models\Area" repository-class="App\Domain\Repository\AreaRepository" table="csloisirs_area">
+        <id name="id" type="uuid" column="id" />
+        <field name="name" type="string" length="150" nullable="false" unique="true" />
+        <field name="address" type="string" length="255" nullable="true" unique="false" />
+        <field name="zip" type="integer" length="5" nullable="true" unique="false" />
+        <field name="city" type="string" length="200" nullable="true" unique="false" />
+
+        <one-to-many field="formations" target-entity="App\Domain\Models\Formation" mapped-by="area">
+            <cascade>
+                <cascade-persist />
+                <cascade-remove />
+            </cascade>
+        </one-to-many>
+    </entity>
+
+</doctrine-mapping>

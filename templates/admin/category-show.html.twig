@@ -1,0 +1,32 @@
+{% extends 'layout/admin-layout.html.twig' %}
+
+{% block title %}
+Admin - Catégories
+{% endblock %}
+
+{% block container %}
+<div class="wrapper-grid-container">
+    <h1>Admin - Catégories</h1>
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <th>Catégories</th>
+            <th><i class="fas fa-trash"></i></th>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+            <tr>
+                <td class="category-editable" data-id="{{ category.id }}" contenteditable="true">{{ category.category }}</td>
+                <td><i class="fas fa-trash" data-id="{{ category.id }}"></i> </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    <script src="{{ asset('assets/js/admin/category-update.js') }}"></script>
+{% endblock %}

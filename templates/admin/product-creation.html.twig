@@ -1,0 +1,42 @@
+{% extends '/layout/admin-layout.html.twig' %}
+
+{% block title %}
+    Ajout d'un produit
+{% endblock %}
+
+{% block container %}
+<section>
+    <div class="wrapper-grid-container">
+        <h1>Ajout d'un produit</h1>
+        <div class="form-container">
+            {{ form_start(form) }}
+            <div class="floating-label" style="margin: 2em 0">
+                {{ form_widget(form.title) }}
+                {{ form_label(form.title) }}
+            </div>
+            <div class="floating-label" style="margin: 2em 0">
+                {{ form_widget(form.category) }}
+            </div>
+            <ul id="contact-fields-list"
+                data-prototype="{{ form_widget(form.images.vars.prototype)|e }}{{ form_label(form.images.vars.prototype)|e }} "
+                data-widget-tags="{{ '<div></div>'|e }}">
+                {% for imagesField in form.images %}
+                    <li>
+                        <div class='floating-label' style='margin: 2em 0;'>
+                            {{ form_widget(imagesField) }}
+                            <span><i class="fas fa-more"></i> </span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <button type="button"
+                    class="btn btn-mout add-another-collection-widget"
+                    data-list="#contact-fields-list">Ajouter une image</button>
+            <div>
+                <button type="submit" class="btn btn-mout">Enregistrer</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+    <entity name="App\Domain\Models\Gallery" repository-class="App\Domain\Repository\GalleryRepository" table="csloisirs_gallery">
+        <id name="id" type="uuid" column="id" />
+        <field name="title" length="150" nullable="false" unique="true" />
+        
+        <one-to-many field="images" target-entity="App\Domain\Models\Image" mapped-by="gallery">
+            <cascade>
+                <cascade-persist />
+                <cascade-remove />
+            </cascade>
+        </one-to-many>
+
+        <one-to-many field="formations" target-entity="App\Domain\Models\Formation" mapped-by="gallery">
+            <cascade>
+                <cascade-persist />
+                <cascade-remove />
+            </cascade>
+        </one-to-many>
+
+    </entity>
+
+</doctrine-mapping>

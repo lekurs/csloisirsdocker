@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+    <entity name="App\Domain\Models\Formation" repository-class="App\Domain\Repository\FormationRepository" table="csloisirs_formation">
+        <id name="id" type="uuid" column="id" />
+        <field name="startDate" type="datetime" nullable="false" />
+        <field name="endDate" type="datetime" nullable="false" />
+        <field name="title" type="string" length="150" nullable="false" unique="false" />
+        <field name="price" type="integer" nullable="true" />
+        <field name="availableSeats" type="integer" nullable="true" />
+
+        <many-to-one field="area" target-entity="App\Domain\Models\Area" inversed-by="formations" />
+        <many-to-one field="gallery" target-entity="App\Domain\Models\Gallery" inversed-by="formations" />
+    </entity>
+
+</doctrine-mapping>
