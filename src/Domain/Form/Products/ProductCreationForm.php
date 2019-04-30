@@ -31,9 +31,7 @@ class ProductCreationForm extends AbstractType
                 'choice_label' => 'category',
             ])
         ->add('images', CollectionType::class, [
-            'prototype' => true,
             'allow_add' => true,
-            'allow_extra_fields' => true,
             'allow_delete' => true,
             'entry_type' => ImageUploadForm::class
         ]);

@@ -12,8 +12,9 @@ interface ProductFactoryInterface
     /**
      * @param string $title
      * @param Category $category
+     * @param array $images
      * @param string $slug
      * @return Product
      */
-    public function create(string $title, Category $category, string $slug): Product;
+    public function create(string $title, Category $category, array $images, string $slug): Product;
 }

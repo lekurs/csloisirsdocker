@@ -4,10 +4,12 @@
 namespace App\Domain\Handler\Admin\Products;
 
 
+use App\Domain\Factory\Interfaces\ImageFactoryInterface;
 use App\Domain\Factory\Interfaces\ProductFactoryInterface;
 use App\Domain\Handler\Interfaces\ProductCreationFormHandlerInterface;
 use App\Domain\Repository\Interfaces\ProductRepositoryInterface;
 use App\Services\Interfaces\SlugHelperInterface;
+use App\Services\Interfaces\UploadedFileHelperInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -25,9 +27,24 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
     private $productFactory;
 
     /**
+     * @var ImageFactoryInterface
+     */
+    private $imageFactory;
+
+    /**
      * @var SessionInterface
      */
     private $session;
+
+    /**
+     * @var UploadedFileHelperInterface
+     */
+    private $uploadedFileHelper;
+
+    /**
+     * @var string
+     */
+    private $dirImages;
 
     /**
      * @var ValidatorInterface
@@ -44,22 +61,31 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
      *
      * @param ProductRepositoryInterface $productRepo
      * @param ProductFactoryInterface $productFactory
+     * @param ImageFactoryInterface $imageFactory
      * @param SessionInterface $session
+     * @param UploadedFileHelperInterface $uploadedFileHelper
      * @param ValidatorInterface $validator
      * @param SlugHelperInterface $slugHelper
+     * @param string $dirImages
      */
     public function __construct(
         ProductRepositoryInterface $productRepo,
         ProductFactoryInterface $productFactory,
+        ImageFactoryInterface $imageFactory,
         SessionInterface $session,
+        UploadedFileHelperInterface $uploadedFileHelper,
         ValidatorInterface $validator,
-        SlugHelperInterface $slugHelper
+        SlugHelperInterface $slugHelper,
+        string $dirImages
     ) {
         $this->productRepo = $productRepo;
         $this->productFactory = $productFactory;
+        $this->imageFactory = $imageFactory;
         $this->session = $session;
+        $this->uploadedFileHelper = $uploadedFileHelper;
         $this->validator = $validator;
         $this->slugHelper = $slugHelper;
+        $this->dirImages = $dirImages;
     }
 
     /**
@@ -69,19 +95,20 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
     {
         if ($form->isSubmitted() && $form->isValid()) {
 
-//            $imageTab = [];
-//            foreach ($form->getData()->images as $image) {
-//                $imageTab[] = $image;
-//            }
-//
-//            foreach ($imageTab as $img) {
-//                dump($img);
-//            }
-            dd($form->getData());
+            if (count($form->getData()->images) > 0) {
+                $imgTab = [];
+                foreach ($form->getData()->images as $imgUploadedDTO) {
+                    foreach($imgUploadedDTO as $img) {
+                        $imgTab[] = $this->imageFactory->create($this->dirImages . $img->getClientOriginalName());
+                        $this->uploadedFileHelper->move($img, $form->getData()->title);
+                    }
+                }
+            }
 
             $product = $this->productFactory->create(
                 $form->getData()->title,
                 $form->getData()->category,
+                $imgTab,
                 $this->slugHelper->replace($form->getData()->title)
             );
 

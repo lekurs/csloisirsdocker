@@ -10,6 +10,7 @@ namespace App\Services;
 
 
 use App\Domain\Models\Client;
+use App\Domain\Models\Product;
 use App\Services\Interfaces\SlugHelperInterface;
 use App\Services\Interfaces\UploadedFileHelperInterface;
 use Symfony\Component\Filesystem\Filesystem;
@@ -20,12 +21,7 @@ class UploadedFileHelper implements UploadedFileHelperInterface
     /**
      * @var string
      */
-    private $dirPortfolio;
-
-    /**
-     * @var string
-     */
-    private $dirTechnoPicto;
+    private $dirImages;
 
     /**
      * @var SlugHelperInterface
@@ -40,19 +36,16 @@ class UploadedFileHelper implements UploadedFileHelperInterface
     /**
      * UploadedFileHelper constructor.
      *
-     * @param string $dirPortfolio
-     * @param string $dirTechnoPicto
+     * @param string $dirImages
      * @param SlugHelperInterface $slugHelper
      * @param Filesystem $fileSystem
      */
     public function __construct(
-        string $dirPortfolio,
-        string $dirTechnoPicto,
+        string $dirImages,
         SlugHelperInterface $slugHelper,
         Filesystem $fileSystem
     ) {
-        $this->dirPortfolio = $dirPortfolio;
-        $this->dirTechnoPicto = $dirTechnoPicto;
+        $this->dirImages = $dirImages;
         $this->slugHelper = $slugHelper;
         $this->fileSystem = $fileSystem;
     }
@@ -69,24 +62,23 @@ class UploadedFileHelper implements UploadedFileHelperInterface
 
     /**
      * @param UploadedFile $file
-     * @param Client $client
      */
-    public function move(UploadedFile $file, Client $client): void
+    public function move(UploadedFile $file): void
     {
-        if (!$this->fileSystem->exists($this->dirPortfolio . $this->slugHelper->replace($client->getName()))) {
+        if (!$this->fileSystem->exists($this->dirImages)){
 
-            $this->fileSystem->mkdir($this->dirPortfolio . $this->slugHelper->replace($client->getName()), 0777);
+            $this->fileSystem->mkdir($this->dirImages, 0777);
         }
 
-        $file->move($this->dirPortfolio . $this->slugHelper->replace($client->getName()), $file->getClientOriginalName());
+        $file->move($this->dirImages, $file->getClientOriginalName());
     }
 
     public function movePicto(UploadedFile $file): void
     {
-        if (!$this->fileSystem->exists($this->dirTechnoPicto)) {
-            $this->fileSystem->mkdir($this->dirTechnoPicto, 0777);
-        }
-
-        $file->move($this->dirTechnoPicto, $file->getClientOriginalName());
+//        if (!$this->fileSystem->exists($this->dirTechnoPicto)) {
+//            $this->fileSystem->mkdir($this->dirTechnoPicto, 0777);
+//        }
+//
+//        $file->move($this->dirTechnoPicto, $file->getClientOriginalName());
     }
 }

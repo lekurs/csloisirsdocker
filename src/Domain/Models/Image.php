@@ -78,4 +78,9 @@ class Image
     {
         return $this->gallery;
     }
+
+    public function addProduct(Product $product): void
+    {
+        $this->product = $product;
+    }
 }

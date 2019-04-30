@@ -10,12 +10,20 @@
 
         <many-to-one field="category" target-entity="App\Domain\Models\Category" inversed-by="products" />
 
-        <one-to-many field="images" target-entity="App\Domain\Models\Image" mapped-by="product">
+        <many-to-many field="images" target-entity="App\Domain\Models\Image">
             <cascade>
                 <cascade-persist />
                 <cascade-remove />
             </cascade>
-        </one-to-many>
+            <join-table name="products_images">
+                <join-columns>
+                    <join-column name="product_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="image_id" referenced-column-name="id" unique="true"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
     </entity>
 
 </doctrine-mapping>

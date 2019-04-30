@@ -26,6 +26,10 @@ class ProductRepository extends ServiceEntityRepository implements ProductReposi
 
     public function save(Product $product): void
     {
+//        foreach ($images as $image) {
+//            $image->addProduct($product);
+//        }
+
         $this->_em->persist($product);
         $this->_em->flush();
     }

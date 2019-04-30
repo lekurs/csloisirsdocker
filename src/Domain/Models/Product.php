@@ -4,6 +4,7 @@
 namespace App\Domain\Models;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 
 class Product
@@ -38,14 +39,16 @@ class Product
      *
      * @param string $title
      * @param Category $category
+     * @param array $images
      * @param string $slug
      * @throws \Exception
      */
-    public function __construct(string $title, Category $category, string $slug)
+    public function __construct(string $title, Category $category, array $images, string $slug)
     {
         $this->id = Uuid::uuid4();
         $this->title = $title;
         $this->category = $category;
+        $this->images = new ArrayCollection($images ?? []);
         $this->slug = $slug;
     }
 

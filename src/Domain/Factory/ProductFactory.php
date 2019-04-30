@@ -13,8 +13,8 @@ final class ProductFactory implements ProductFactoryInterface
     /**
      * @inheritDoc
      */
-    public function create(string $title, Category $category, string $slug): Product
+    public function create(string $title, Category $category, array $images, string $slug): Product
     {
-        return new Product($title, $category, $slug);
+        return new Product($title, $category, $images, $slug);
     }
 }

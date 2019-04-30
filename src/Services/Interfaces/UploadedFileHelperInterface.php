@@ -9,7 +9,7 @@
 namespace App\Services\Interfaces;
 
 
-use App\Domain\Models\Client;
+use App\Domain\Models\Product;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -17,14 +17,13 @@ interface UploadedFileHelperInterface
 {
     /**
      * UploadedFileHelperInterface constructor.
+     *
      * @param string $dirPortfolio
-     * @param string $technologyPictoDir
      * @param SlugHelperInterface $slugHelper
      * @param Filesystem $fileSystem
      */
     public function __construct(
         string $dirPortfolio,
-        string $technologyPictoDir,
         SlugHelperInterface $slugHelper,
         Filesystem $fileSystem
     );
@@ -37,10 +36,10 @@ interface UploadedFileHelperInterface
 
     /**
      * @param UploadedFile $file
-     * @param Client $client
+     * @param Product $product
      * @return mixed
      */
-    public function move(UploadedFile $file, Client $client);
+    public function move(UploadedFile $file);
 
     /**
      * @param UploadedFile $file
