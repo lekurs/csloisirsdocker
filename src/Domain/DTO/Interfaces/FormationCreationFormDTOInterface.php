@@ -15,7 +15,6 @@ interface FormationCreationFormDTOInterface
      * @param \DateTime $endDate
      * @param string $title
      * @param Area $area
-     * @param string $slug
      * @param int|null $price
      * @param int|null $availableSeats
      */
@@ -24,7 +23,6 @@ interface FormationCreationFormDTOInterface
         \DateTime $endDate,
         string $title,
         Area $area,
-        string $slug,
         int $price = null,
         int $availableSeats = null
     );

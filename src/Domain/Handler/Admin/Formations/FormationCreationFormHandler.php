@@ -65,17 +65,20 @@ class FormationCreationFormHandler implements FormationCreationFormHandlerInterf
     public function handle(FormInterface $form): bool
     {
         if ($form->isSubmitted() && $form->isValid()) {
+
             $formation = $this->formationFactory->create(
                 $form->getData()->startDate,
                 $form->getData()->endDate,
                 $form->getData()->title,
-                $form->getData()->price,
-                $form->getData()->availableSeats,
+                $form->getData()->area,
                 $this->slugHelper->replace($form->getData()->title),
-                $form->getData()->area
+                $form->getData()->price,
+                $form->getData()->availableSeats
             );
 
-            dd($formation);
+            $this->formationRepo->save($formation);
+
+            $this->session->getFlashBag()->add('success', 'Stage enregistré');
 
             return true;
         }

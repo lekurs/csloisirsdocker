@@ -15,12 +15,12 @@ final class FormationFactory implements FormationFactoryInterface
         \DateTime $startDate,
         \DateTime $endDate,
         string $title,
-        int $price,
-        int $avalaibleSeats,
-        string $slug,
         Area $area,
+        string $slug,
+        int $price = null,
+        int $avalaibleSeats = null,
         Gallery $gallery = null
     ): Formation {
-        return new Formation($startDate, $endDate, $title, $price, $avalaibleSeats, $slug, $area, $gallery);
+        return new Formation($startDate, $endDate, $title, $area, $slug, $price, $avalaibleSeats, $gallery);
     }
 }

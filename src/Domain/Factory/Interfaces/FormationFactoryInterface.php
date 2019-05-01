@@ -25,10 +25,10 @@ interface FormationFactoryInterface
         \DateTime $startDate,
         \DateTime $endDate,
         string $title,
-        int $price,
-        int $avalaibleSeats,
-        string $slug,
         Area $area,
+        string $slug,
+        int $price = null,
+        int $avalaibleSeats = null,
         Gallery $gallery = null
     ): Formation;
 }

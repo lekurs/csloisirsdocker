@@ -70,20 +70,20 @@ class Formation
         \DateTime $startDate,
         \DateTime $endDate,
         string $title,
-        int $price,
-        int $availableSeats,
-        string $slug,
         Area $area,
+        string $slug,
+        int $price = null,
+        int $availableSeats = null,
         Gallery $gallery = null
     ) {
         $this->id = Uuid::uuid4();
         $this->startDate = $startDate;
         $this->endDate = $endDate;
         $this->title = $title;
+        $this->area = $area;
+        $this->slug = $slug;
         $this->price = $price;
         $this->availableSeats = $availableSeats;
-        $this->slug = $slug;
-        $this->area = $area;
         $this->gallery = $gallery;
     }
 

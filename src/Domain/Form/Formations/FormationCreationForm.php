@@ -43,7 +43,8 @@ class FormationCreationForm extends AbstractType
             ])
             ->add('area', EntityType::class, [
                 'class' => Area::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'label' => 'Lieu du stage'
             ])
             ->add('price', IntegerType::class, [
                 'label_attr' => ['class' => 'float'],
@@ -68,6 +69,7 @@ class FormationCreationForm extends AbstractType
                    $form->get('startDate')->getData(),
                    $form->get('endDate')->getData(),
                    $form->get('title')->getData(),
+                   $form->get('area')->getData(),
                    $form->get('price')->getData(),
                    $form->get('availableSeats')->getData()
                 );
