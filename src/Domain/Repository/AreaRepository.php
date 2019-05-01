@@ -15,4 +15,32 @@ class AreaRepository extends ServiceEntityRepository implements AreaRepositoryIn
     {
         parent::__construct($registry, Area::class);
     }
+
+    public function getAll(): array
+    {
+        return $this->createQueryBuilder('area')
+                                ->orderBy('area.name', 'ASC')
+                                ->getQuery()
+                                ->getResult();
+    }
+
+    public function getOneById($id): Area
+    {
+        return $this->createQueryBuilder('area')
+                                ->where('area.id = :id')
+                                ->setParameter('id', $id)
+                                ->getQuery()
+                                ->getOneOrNullResult();
+    }
+
+    public function save(Area $area): void
+    {
+        $this->_em->persist($area);
+        $this->_em->flush();
+    }
+
+    public function edit(): void
+    {
+        $this->_em->flush();
+    }
 }

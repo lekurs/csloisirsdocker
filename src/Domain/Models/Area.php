@@ -4,6 +4,7 @@
 namespace App\Domain\Models;
 
 
+use App\Domain\DTO\Admin\Parameters\AreaFormDTO;
 use Ramsey\Uuid\Uuid;
 
 class Area
@@ -106,5 +107,13 @@ class Area
     public function getFormations(): \ArrayAccess
     {
         return $this->formations;
+    }
+
+    public function edit(AreaFormDTO $DTO): void
+    {
+        $this->name = $DTO->name;
+        $this->address = $DTO->address;
+        $this->zip = $DTO->zip;
+        $this->city = $DTO->city;
     }
 }

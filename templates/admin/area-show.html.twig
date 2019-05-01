@@ -1,0 +1,34 @@
+{% extends 'layout/admin-layout.html.twig' %}
+
+{% block title %}
+    Admin - Lieu de stage
+{% endblock %}
+
+{% block container %}
+    <div class="wrapper-grid-container">
+        <h1>Admin - Lieu de stages</h1>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                <th>Lieu de stages</th>
+                <th><i class="fas fa-edit"></i></th>
+                <th><i class="fas fa-trash"></i></th>
+                </thead>
+                <tbody>
+                {% for area in areas %}
+                    <tr>
+                        <td class="category-editable" data-id="{{ area.id }}" >{{ area.name}}</td>
+                        <td><a href="{{ path('areaEdit', {'id': area.id}) }}"><i class="fas fa-edit" data-id="{{ area.id }}"></i></a> </td>
+                        <td><i class="fas fa-trash" data-id="{{ area.id }}"></i> </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{#    <script src="{{ asset('assets/js/admin/category-update.js') }}"></script>#}
+{% endblock %}

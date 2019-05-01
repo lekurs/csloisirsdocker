@@ -16,6 +16,7 @@ interface FormationFactoryInterface
      * @param string $title
      * @param int $price
      * @param int $avalaibleSeats
+     * @param string $slug
      * @param Area $area
      * @param Gallery|null $gallery
      * @return Formation
@@ -26,6 +27,7 @@ interface FormationFactoryInterface
         string $title,
         int $price,
         int $avalaibleSeats,
+        string $slug,
         Area $area,
         Gallery $gallery = null
     ): Formation;

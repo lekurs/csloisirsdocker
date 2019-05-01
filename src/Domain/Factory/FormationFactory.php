@@ -17,9 +17,10 @@ final class FormationFactory implements FormationFactoryInterface
         string $title,
         int $price,
         int $avalaibleSeats,
+        string $slug,
         Area $area,
         Gallery $gallery = null
     ): Formation {
-        return new Formation($startDate, $endDate, $title, $price, $avalaibleSeats, $area, $gallery);
+        return new Formation($startDate, $endDate, $title, $price, $avalaibleSeats, $slug, $area, $gallery);
     }
 }

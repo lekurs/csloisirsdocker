@@ -6,8 +6,8 @@
     {% block stylesheet %}
         <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800|Playfair+Display:400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/fh-3.1.4/r-2.2.2/datatables.min.css"/>
-        <link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+{#        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/fh-3.1.4/r-2.2.2/datatables.min.css"/>#}
+{#        <link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" />#}
         <link href="{{ asset('/assets/vendors/bootstrap.css') }}"  rel="stylesheet">
         <link href="{{ asset('/assets/css/admin/admin-layout.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/global/floating-label.css') }}" rel="stylesheet" />
@@ -113,7 +113,7 @@
                         </a>
                     </div>
                     <div class="admin-nav-submenu-link-container"><a href="{{ path('categoryShow') }}">Les catégories</a></div>
-                    {#                        <div class="admin-nav-submenu-link-container">submenu8</div>#}
+                     <div class="admin-nav-submenu-link-container"><a href="{{ path('areaShow') }}">Les lieux de stage</a></div>
                     {#                        <div class="admin-nav-submenu-link-container">submenu9</div>#}
                     {#                        <div class="admin-nav-submenu-link-container">submenu10</div>#}
                 </div>
@@ -139,7 +139,7 @@
     <script src="{{ asset('assets/vendors/jquery.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap.bundle.js') }}"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+{#    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>#}
     <script src="{{ asset('assets/js/global/add-collectiontype-widget.js') }}"></script>
     <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>

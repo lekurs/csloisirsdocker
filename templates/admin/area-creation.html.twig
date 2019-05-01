@@ -1,0 +1,37 @@
+{% extends '/layout/admin-layout.html.twig' %}
+
+{% block title %}
+    Ajout d'un lieu de stage
+{% endblock %}
+
+{% block container %}
+    <section>
+        <div class="wrapper-grid-container">
+            <h1>Ajout d'un lieu de stage</h1>
+            <div class="form-container">
+                {{ form_start(form) }}
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.name) }}
+                    {{ form_label(form.name) }}
+                </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.address) }}
+                    {{ form_label(form.address) }}
+                </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.zip) }}
+                    {{ form_label(form.zip) }}
+                </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.city) }}
+                    {{ form_label(form.city) }}
+                </div>
+                <div >
+                    <button type="submit" class="btn btn-mout mt-2">Ajouter</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}

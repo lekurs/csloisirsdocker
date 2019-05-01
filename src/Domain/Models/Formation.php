@@ -40,6 +40,11 @@ class Formation
     private $availableSeats;
 
     /**
+     * @var string
+     */
+    private $slug;
+
+    /**
      * @var Area
      */
     private $area;
@@ -56,6 +61,7 @@ class Formation
      * @param string $title
      * @param int $price
      * @param int $availableSeats
+     * @param string $slug
      * @param Area $area
      * @param Gallery $gallery
      * @throws \Exception
@@ -66,6 +72,7 @@ class Formation
         string $title,
         int $price,
         int $availableSeats,
+        string $slug,
         Area $area,
         Gallery $gallery = null
     ) {
@@ -75,6 +82,7 @@ class Formation
         $this->title = $title;
         $this->price = $price;
         $this->availableSeats = $availableSeats;
+        $this->slug = $slug;
         $this->area = $area;
         $this->gallery = $gallery;
     }
@@ -125,6 +133,14 @@ class Formation
     public function getAvailableSeats(): int
     {
         return $this->availableSeats;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
     }
 
     /**
