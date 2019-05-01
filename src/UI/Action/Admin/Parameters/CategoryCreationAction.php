@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * Class CategoryCreationAction
  * @Route(name="categoryAdd", path="admin/category/add")
  */
-class CategoryCreationAction implements CategoryCreationActionInterface
+final class CategoryCreationAction implements CategoryCreationActionInterface
 {
     /**
      * @var FormFactoryInterface

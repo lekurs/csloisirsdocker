@@ -1,0 +1,45 @@
+{% extends '/layout/admin-layout.html.twig' %}
+
+{% block title %}
+    Mise à jour du stage : {{ formation.title }}
+{% endblock %}
+
+{% block container %}
+    <section>
+        <div class="wrapper-grid-container">
+            <h1>Ajout d'une date de stage</h1>
+            <div class="form-container">
+                {{ form_start(form) }}
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.title) }}
+                    {{ form_label(form.title) }}
+                </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_label(form.area) }}
+                    {{ form_widget(form.area) }}
+                </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.startDate) }}
+                    {{ form_label(form.startDate) }}
+                </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.endDate) }}
+                    {{ form_label(form.endDate) }}
+                </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.price) }}
+                    {{ form_label(form.price) }}
+                </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.availableSeats) }}
+                    {{ form_label(form.availableSeats) }}
+                </div>
+                <div >
+                    <button type="submit" class="btn btn-mout mt-2">Mettre à jour</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}

@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * Class AreaEditAction
  * @Route(name="areaEdit", path="admin/area/edit/{id}")
  */
-class AreaEditAction implements AreaEditActionInterface
+final class AreaEditAction implements AreaEditActionInterface
 {
     /**
      * @var AreaRepositoryInterface
@@ -53,7 +53,9 @@ class AreaEditAction implements AreaEditActionInterface
         $this->formFactory = $formFactory;
     }
 
-
+    /**
+     * @inheritDoc
+     */
     public function __invoke(Request $request, AreaEditResponderInterface $responder): Response
     {
         $area = $this->areaRepo->getOneById($request->attributes->get('id'));

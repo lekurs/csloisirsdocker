@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Class CategoryShowAction
  * @Route(name="categoryShow", path="admin/category/show")
  */
-class CategoryShowAction implements CategoryShowActionInterface
+final class CategoryShowAction implements CategoryShowActionInterface
 {
     /**
      * @var CategoryRepositoryInterfaces
@@ -30,6 +30,9 @@ class CategoryShowAction implements CategoryShowActionInterface
         $this->categoryRepo = $categoryRepo;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function __invoke(CategoryShowResponderInterface $responder): Response
     {
         $categories = $this->categoryRepo->getAll();

@@ -4,10 +4,10 @@
 namespace App\Domain\DTO\Admin\Formations;
 
 
-use App\Domain\DTO\Interfaces\FormationCreationFormDTOInterface;
+use App\Domain\DTO\Interfaces\FormationEditFormDTOInterface;
 use App\Domain\Models\Area;
 
-final class FormationCreationFormDTO implements FormationCreationFormDTOInterface
+final class FormationEditFormDTO implements FormationEditFormDTOInterface
 {
     /**
      * @var \DateTime
@@ -40,13 +40,27 @@ final class FormationCreationFormDTO implements FormationCreationFormDTOInterfac
     public $area;
 
     /**
-     * @inheritDoc
+     * @var string
+     */
+    public $slug;
+
+    /**
+     * FormationEditFormDTO constructor.
+     *
+     * @param \DateTime $startDate
+     * @param \DateTime $endDate
+     * @param string $title
+     * @param Area $area
+     * @param string $slug
+     * @param int|null $price
+     * @param int|null $availableSeats
      */
     public function __construct(
         \DateTime $startDate,
         \DateTime $endDate,
         string $title,
         Area $area,
+        string $slug,
         int $price = null,
         int $availableSeats = null
     ) {
@@ -54,6 +68,7 @@ final class FormationCreationFormDTO implements FormationCreationFormDTOInterfac
         $this->endDate = $endDate;
         $this->title = $title;
         $this->area = $area;
+        $this->slug = $slug;
         $this->price = $price;
         $this->availableSeats = $availableSeats;
     }

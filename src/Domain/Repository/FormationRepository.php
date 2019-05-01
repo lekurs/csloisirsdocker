@@ -23,9 +23,23 @@ class FormationRepository extends ServiceEntityRepository implements FormationRe
                                 ->getResult();
     }
 
+    public function getOneById($id): Formation
+    {
+        return $this->createQueryBuilder('formation')
+                                ->where('formation.id = :id')
+                                ->setParameter('id', $id)
+                                ->getQuery()
+                                ->getOneOrNullResult();
+    }
+
     public function save(Formation $formation): void
     {
         $this->_em->persist($formation);
+        $this->_em->flush();
+    }
+
+    public function edit(): void
+    {
         $this->_em->flush();
     }
 }

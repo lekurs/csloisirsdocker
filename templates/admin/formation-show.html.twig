@@ -1,0 +1,40 @@
+{% extends 'layout/admin-layout.html.twig' %}
+
+{% block title %}
+    Admin - Les stages
+{% endblock %}
+
+{% block container %}
+    <div class="wrapper-grid-container">
+        <h1>Admin - Les stages</h1>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                <th>Nom du stage</th>
+                <th>Lieu du stage</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th><i class="fas fa-edit"></i></th>
+                <th><i class="fas fa-trash"></i></th>
+                </thead>
+                <tbody>
+                {% for formation in formations %}
+                    <tr>
+                        <td class="category-editable" data-id="{{ formation.id }}" ><a href="{{ path('formationEdit', {'id': formation.id}) }}">{{ formation.title}}</a></td>
+                        <td class="category-editable" data-id="{{ formation.area.id }}" >{{ formation.area.name}}</td>
+                        <td>{{ formation.startDate | date('d/m/Y') }}</td>
+                        <td>{{ formation.endDate | date('d/m/Y') }}</td>
+                        <td><a href="{{ path('formationEdit', {'id': formation.id}) }}"><i class="fas fa-edit" data-id="{{ formation.id }}"></i></a> </td>
+                        <td><i class="fas fa-trash" data-id="{{ formation.id }}"></i> </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {#    <script src="{{ asset('assets/js/admin/category-update.js') }}"></script>#}
+{% endblock %}

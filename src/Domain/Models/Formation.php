@@ -4,6 +4,8 @@
 namespace App\Domain\Models;
 
 
+use App\Domain\DTO\Admin\Formations\FormationEditFormDTO;
+use App\Domain\DTO\Interfaces\FormationCreationFormDTOInterface;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Validator\Constraints\Date;
 
@@ -122,7 +124,7 @@ class Formation
     /**
      * @return int
      */
-    public function getPrice(): int
+    public function getPrice(): ?int
     {
         return $this->price;
     }
@@ -130,7 +132,7 @@ class Formation
     /**
      * @return int
      */
-    public function getAvailableSeats(): int
+    public function getAvailableSeats(): ?int
     {
         return $this->availableSeats;
     }
@@ -157,5 +159,16 @@ class Formation
     public function getGallery(): Gallery
     {
         return $this->gallery;
+    }
+
+    public function edit(FormationEditFormDTO $DTO): void
+    {
+        $this->title = $DTO->title;
+        $this->startDate = $DTO->startDate;
+        $this->endDate = $DTO->endDate;
+        $this->area = $DTO->area;
+        $this->slug = $DTO->slug;
+        $this->price = $DTO->price;
+        $this->availableSeats = $DTO->availableSeats;
     }
 }
