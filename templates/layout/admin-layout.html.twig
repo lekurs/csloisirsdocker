@@ -12,6 +12,7 @@
         <link href="{{ asset('/assets/css/admin/admin-layout.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/global/floating-label.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/global/overwrite-bootstrap.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/assets/css/global/admin-nav.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/fonts/font-awesome.css') }}" rel="stylesheet" />
     {% endblock %}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,68 +63,88 @@
         {% endfor %}
     {% endblock %}
 
-        <div class="admin-nav">
-        <div><img src="{{ asset('assets/images/home/logo-mout.svg') }}" alt="Mout Web Agency" class="img-fluid" /> </div>
-        <div class="admin-nav-container">
-            <a href="{{ path('admin') }}">
-                <div class="admin-nav-content">
-                    <div class="admin-nav-title">Accueil</div>
-                    <div><i class="fa fa-home fa-3x"></i> </div>
-                </div>
-            </a>
-            <div class="admin-nav-content">
-{#                activer ici le submenu#}
-                <div class="admin-nav-title">Produits</div>
-                <div><i class="fas fa-hippo fa-3x"></i></div>
-                <div class="admin-nav-submenu">
-                    <div class="admin-nav-submenu-link-container">
-                        <a href="#">
-                            <div>Voir les clients</div>
-                            <div><i class="fa fa-users fa-3x"></i> </div>
-                        </a>
+    <div class="menu-wrapper">
+        <a class="logo">
+            <img src="{{ asset('assets/images/home/logo-mout.svg') }}" alt="Mout Web Agency" class="img-fluid" />
+        </a>
+        <nav class="admin-navigation">
+            <ul class="navigation">
+                <li class="navigation-menu">
+                    <a href="{{ path('admin') }}" class="nav-item-link">
+                        <span class="logo-item-menu"><i class="fas fa-home fa-2x"></i></span>
+                        <span class="menu-link">Accueil</span>
+                    </a>
+                </li>
+                <li class="navigation-menu">
+                    <a href="#" class="nav-item-link">
+                        <span class="logo-item-menu"><i class="fas fa-hippo fa-2x"></i></span>
+                        <span class="menu-link">Produits</span>
+                    </a>
+                    <div class="submenu">
+                        <span class="submenu-title">Produits</span>
+                        <a href="#" class="close-navigation"></a>
+                        <ul>
+                            <li class="item-submenu">
+                                <a href="#" class="nav-item-link">
+                                    <span class="logo-item-menu"><i class="fas fa-bullseye fa-2x"></i></span>
+                                    <span class="menu-link">Voir les produits</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="admin-nav-submenu-link-container">
-                        <a href="#">
-                            <div>Ajouter</div>
-                            <div><i class="fa fa-plus fa-3x"></i> </div>
-                        </a>
+                </li>
+                <li class="navigation-menu">
+                    <a href="#" class="nav-item-link">
+                        <span class="logo-item-menu"><i class="fas fa-hippo fa-2x"></i></span>
+                        <span class="menu-link">Stages</span>
+                    </a>
+                    <div class="submenu">
+                        <span class="submenu-title">Stages</span>
+                        <a href="#" class="close-navigation"></a>
+                        <ul>
+                            <li class="item-submenu">
+                                <a href="{{ path('formationShow') }}" class="nav-item-link">
+                                    <span class="logo-item-menu"><i class="fas fa-hippo fa-2x"></i></span>
+                                    <span class="menu-link">Voir les stages</span>
+                                </a>
+                            </li>
+                            <li class="item-submenu">
+                                <a href="#" class="nav-item-link">
+                                    <span class="logo-item-menu"><i class="fas fa-more fa-2x"></i></span>
+                                    <span class="menu-link">Ajouter un stage</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="admin-nav-submenu-link-container">
-                        <a href="#">
-                            <div>Voir les devis en cours</div>
-                            <div><i class="fa fa-calculator fa-3x"></i> </div>
-                        </a>
+                </li>
+                <li class="navigation-menu">
+                    <a href="#" class="nav-item-link">
+                        <span class="logo-item-menu"><i class="fas fa-frog fa-2x"></i></span>
+                        <span class="menu-link">Paramètres</span>
+                    </a>
+                    <div class="submenu">
+                        <span class="submenu-title">Produits</span>
+                        <a href="#" class="close-navigation"></a>
+                        <ul>
+                            <li class="item-submenu">
+                                <a href="{{ path('categoryShow') }}" class="nav-item-link">
+                                    <span class="logo-item-menu"><i class="fas fa-bookmark"></i></span>
+                                    <span class="menu-link">Catégories</span>
+                                </a>
+                            </li>
+                            <li class="item-submenu">
+                                <a href="{{ path('areaShow') }}" class="nav-item-link">
+                                    <span class="logo-item-menu"><i class="far fa-map"></i></span>
+                                    <span class="menu-link">Lieux des stages</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="admin-nav-submenu-link-container">
-                        <a href="#">
-                            <div>Voir les factures</div>
-                            <div><i class="fa fa-money fa-3x"></i> </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="admin-nav-content">
-                <div class="admin-nav-title">Paramètres</div>
-                <div><i class="fas fa-frog fa-3x"></i></div>
-                <div class="admin-nav-submenu">
-                    <div class="admin-nav-submenu-link-container">
-                        <a href="#">
-                            <div>Paramétrer l'application</div>
-                            <div><i class="fa fa-gear fa-3x"></i> </div>
-                        </a>
-                    </div>
-                    <div class="admin-nav-submenu-link-container"><a href="{{ path('categoryShow') }}">Les catégories</a></div>
-                     <div class="admin-nav-submenu-link-container"><a href="{{ path('areaShow') }}">Les lieux de stage</a></div>
-                    {#                        <div class="admin-nav-submenu-link-container">submenu9</div>#}
-                    {#                        <div class="admin-nav-submenu-link-container">submenu10</div>#}
-                </div>
-            </div>
-            <div class="admin-nav-content">
-                <div class="admin-nav-title"><a href="{{ path('index') }}">Site Client</a></div>
-                <div><i class="fas fa-dragon fa-3x"></i></div>
-            </div>
-        </div>
+                </li>
+            </ul>
+        </nav>
     </div>
+
         <div class="admin-grid-container">
         {% block container %}
 
@@ -143,7 +164,8 @@
     <script src="{{ asset('assets/js/global/add-collectiontype-widget.js') }}"></script>
     <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script type="text/javascript" src="{{ asset('/assets/js/admin/admin-menu.js') }}"></script>
+{#    <script type="text/javascript" src="{{ asset('/assets/js/admin/admin-menu.js') }}"></script>#}
+    <script src="{{ asset('assets/js/global/admin-nav.js') }}"></script>
     <script>$('.dropdown-toggle').dropdown()</script>
 {% endblock %}
 
