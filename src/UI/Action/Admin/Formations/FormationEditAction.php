@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class FormationEditAction
- * @Route(name="formationEdit", path="admin/formation/edit/{id}")
+ * @Route(name="formationEdit", path="admin/formation/edit/{slug}")
  */
 final class FormationEditAction implements FormationEditActionInterface
 {
@@ -58,7 +58,7 @@ final class FormationEditAction implements FormationEditActionInterface
      */
     public function __invoke(Request $request, FormationEditResponderInterface $responder): Response
     {
-        $formation = $this->formationRepo->getOneById($request->attributes->get('id'));
+        $formation = $this->formationRepo->getOneBySlug($request->attributes->get('slug'));
 
         $formationEdit = new FormationEditFormDTO(
             $formation->getStartDate(),

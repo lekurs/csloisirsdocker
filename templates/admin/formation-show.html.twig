@@ -20,21 +20,24 @@
                 <tbody>
                 {% for formation in formations %}
                     <tr>
-                        <td class="category-editable" data-id="{{ formation.id }}" ><a href="{{ path('formationEdit', {'id': formation.id}) }}">{{ formation.title}}</a></td>
-                        <td class="category-editable" data-id="{{ formation.area.id }}" >{{ formation.area.name}}</td>
+                        <td class="category-editable"><a href="{{ path('formationEdit', {'slug': formation.slug}) }}">{{ formation.title}}</a></td>
+                        <td class="category-editable" >{{ formation.area.name}}</td>
                         <td>{{ formation.startDate | date('d/m/Y') }}</td>
                         <td>{{ formation.endDate | date('d/m/Y') }}</td>
-                        <td><a href="{{ path('formationEdit', {'id': formation.id}) }}"><i class="fas fa-edit" data-id="{{ formation.id }}"></i></a> </td>
-                        <td><i class="fas fa-trash" data-id="{{ formation.id }}"></i> </td>
+                        <td><a href="{{ path('formationEdit', {'slug': formation.id}) }}"><i class="fas fa-edit" data-id="{{ formation.id }}"></i></a> </td>
+                        <td><i class="fas fa-trash" data-id="{{ formation.id }}"></i></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
+        </div>
+        <div>
+            <a href="{{ path('formationCreation') }}" class="btn btn-mout">Ajouter un stage</a>
         </div>
     </div>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    {#    <script src="{{ asset('assets/js/admin/category-update.js') }}"></script>#}
+        <script src="{{ asset('assets/js/admin/formation-delete.js') }}"></script>
 {% endblock %}

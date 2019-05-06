@@ -1,0 +1,29 @@
+{% extends '/layout/admin-layout.html.twig' %}
+
+{% block title %}
+    Voir les produits
+{% endblock %}
+
+{% block container %}
+<section>
+    <div class="wrapper-grid-container">
+        <h1>Voir les produits</h1>
+        <div>
+            <ul class="nav nav-tabs">
+                {% for category in products.category %}
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">{{ category.category }}</a>
+                </li>
+               {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <table id="products" class="table table-hover">
+                <thead>
+                    <th>Produit</th>
+                </thead>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

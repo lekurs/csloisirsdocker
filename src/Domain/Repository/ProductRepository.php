@@ -19,17 +19,14 @@ class ProductRepository extends ServiceEntityRepository implements ProductReposi
     public function getAll(): array
     {
         return $this->createQueryBuilder('product')
-                                ->orderBy('product.category.category', 'ASC')
+                                ->leftJoin('product.category', 'category')
+                                ->orderBy('category.category', 'ASC')
                                 ->getQuery()
                                 ->getResult();
     }
 
     public function save(Product $product): void
     {
-//        foreach ($images as $image) {
-//            $image->addProduct($product);
-//        }
-
         $this->_em->persist($product);
         $this->_em->flush();
     }

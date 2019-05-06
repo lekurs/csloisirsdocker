@@ -46,4 +46,10 @@ class CategoryRepository extends ServiceEntityRepository implements CategoryRepo
     {
         $this->_em->flush();
     }
+
+    public function delete(Category $category): void
+    {
+        $this->_em->remove($category);
+        $this->_em->flush();
+    }
 }

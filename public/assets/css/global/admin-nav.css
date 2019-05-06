@@ -62,7 +62,7 @@ div.submenu {
     background-color: #4a4542;
     box-shadow: 0 0 3px #000000;
     left: 100%;
-    min-height: calc(7.5rem + 2rem + 100%);
+    min-height: calc(24.5rem + 2rem + 100%);
     padding: 2rem 0 0;
     position: absolute;
     top: 0;

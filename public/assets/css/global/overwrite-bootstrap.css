@@ -1,5 +1,7 @@
 .alert-success {
-    width: calc(100% - 200px);
-    margin-left: 200px;
+    width: calc(100% - 8em);
+    margin-left: 8em;
     position: absolute;
+    border-radius: 0;
+    top: 0px;
 }

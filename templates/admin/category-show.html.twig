@@ -23,10 +23,14 @@ Admin - Catégories
             </tbody>
         </table>
     </div>
+    <div>
+        <a href="{{ path('categoryAdd') }}" class="btn btn-mout">Ajouter une catégorie</a>
+    </div>
 </div>
 {% endblock %}
 
 {% block javascripts %}
 {{ parent() }}
     <script src="{{ asset('assets/js/admin/category-update.js') }}"></script>
+    <script src="{{ asset('assets/js/admin/category-delete.js') }}"></script>
 {% endblock %}

@@ -32,6 +32,15 @@ class FormationRepository extends ServiceEntityRepository implements FormationRe
                                 ->getOneOrNullResult();
     }
 
+    public function getOneBySlug($slug): Formation
+    {
+        return $this->createQueryBuilder('formation')
+            ->where('formation.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     public function save(Formation $formation): void
     {
         $this->_em->persist($formation);
@@ -40,6 +49,12 @@ class FormationRepository extends ServiceEntityRepository implements FormationRe
 
     public function edit(): void
     {
+        $this->_em->flush();
+    }
+
+    public function delete(Formation $formation): void
+    {
+        $this->_em->remove($formation);
         $this->_em->flush();
     }
 }
