@@ -4,6 +4,7 @@
 namespace App\Domain\Models;
 
 
+use App\Domain\DTO\Admin\Products\ProductEditFormDTO;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 
@@ -90,5 +91,15 @@ class Product
     public function getImages(): \ArrayAccess
     {
         return $this->images;
+    }
+
+    /**
+     * @param ProductEditFormDTO $DTO
+     */
+    public function edit(ProductEditFormDTO $DTO)
+    {
+        $this->title = $DTO->title;
+        $this->category = $DTO->category;
+        $this->slug = $DTO->slug;
     }
 }

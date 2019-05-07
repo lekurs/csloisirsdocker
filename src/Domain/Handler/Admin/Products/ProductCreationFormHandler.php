@@ -44,7 +44,7 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
     /**
      * @var string
      */
-    private $dirImages;
+    private $dirImagesPath;
 
     /**
      * @var ValidatorInterface
@@ -66,7 +66,7 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
      * @param UploadedFileHelperInterface $uploadedFileHelper
      * @param ValidatorInterface $validator
      * @param SlugHelperInterface $slugHelper
-     * @param string $dirImages
+     * @param string $dirImagesPath
      */
     public function __construct(
         ProductRepositoryInterface $productRepo,
@@ -76,7 +76,7 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
         UploadedFileHelperInterface $uploadedFileHelper,
         ValidatorInterface $validator,
         SlugHelperInterface $slugHelper,
-        string $dirImages
+        string $dirImagesPath
     ) {
         $this->productRepo = $productRepo;
         $this->productFactory = $productFactory;
@@ -85,7 +85,7 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
         $this->uploadedFileHelper = $uploadedFileHelper;
         $this->validator = $validator;
         $this->slugHelper = $slugHelper;
-        $this->dirImages = $dirImages;
+        $this->dirImagesPath = $dirImagesPath;
     }
 
     /**
@@ -99,7 +99,7 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
                 $imgTab = [];
                 foreach ($form->getData()->images as $imgUploadedDTO) {
                     foreach($imgUploadedDTO as $img) {
-                        $imgTab[] = $this->imageFactory->create($this->dirImages . $img->getClientOriginalName());
+                        $imgTab[] = $this->imageFactory->create($this->dirImagesPath . $img->getClientOriginalName());
                         $this->uploadedFileHelper->move($img, $form->getData()->title);
                     }
                 }

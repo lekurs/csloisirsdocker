@@ -36,7 +36,6 @@ interface UploadedFileHelperInterface
 
     /**
      * @param UploadedFile $file
-     * @param Product $product
      * @return mixed
      */
     public function move(UploadedFile $file);

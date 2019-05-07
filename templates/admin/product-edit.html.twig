@@ -1,0 +1,71 @@
+{% extends '/layout/admin-layout.html.twig' %}
+
+{% block stylesheet %}
+{{ parent() }}
+    <link href="{{ asset('assets/css/admin/product.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}
+    Mise à jour du produit : {{ product.title }}
+{% endblock %}
+
+{% block container %}
+    <section>
+        <div class="wrapper-grid-container">
+            <h1>Mise à jour du produit : {{ product.title }}</h1>
+            <div class="form-container">
+                {{ form_start(form) }}
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.title) }}
+                    {{ form_label(form.title) }}
+                </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.category) }}
+                </div>
+                <div>
+                    {% for images in product.images %}
+                        <figure class="img-container">
+                            <img src="{{ images.path }}" class="img-fluid {% if loop.first %} main-image {% endif %} product-image" alt="{{ product.title }}" id="blah" />
+                            <div class="update-img">
+                                <a href="#"><i class="fas fa-edit"></i>
+                                    <div class="input-img-container">
+                                        <input type="file" name="edit-image" class="update-img-file" id="product-img-file">
+                                    </div>
+                                </a>
+                                <a href="#"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </figure>
+                    {% endfor %}
+                </figure>
+                <div>
+                    <button type="submit" class="btn btn-mout">Enregistrer</button>
+                </div>
+                {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#product-img-file").change(function() {
+            readURL(this);
+        });
+    </script>
+
+{% endblock %}

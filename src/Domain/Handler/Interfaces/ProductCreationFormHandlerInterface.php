@@ -25,7 +25,7 @@ interface ProductCreationFormHandlerInterface
      * @param UploadedFileHelperInterface $uploadedFileHelper
      * @param ValidatorInterface $validator
      * @param SlugHelperInterface $slugHelper
-     * @param string $dirImages
+     * @param string $dirImagesPath
      */
     public function __construct(
         ProductRepositoryInterface $productRepo,
@@ -35,7 +35,7 @@ interface ProductCreationFormHandlerInterface
         UploadedFileHelperInterface $uploadedFileHelper,
         ValidatorInterface $validator,
         SlugHelperInterface $slugHelper,
-        string $dirImages
+        string $dirImagesPath
     );
 
     /**

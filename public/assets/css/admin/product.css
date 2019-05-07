@@ -1,0 +1,55 @@
+/** EDIT PRODUCT **/
+
+figure.img-container {
+    position: relative;
+}
+
+img.main-image {
+    width: 20% !important;
+}
+
+img.product-image {
+    width: 10%;
+}
+
+div.update-img {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    opacity: 0;
+    cursor: pointer;
+    -webkit-transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -ms-transition: opacity .3s ease-in-out;
+    -o-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
+
+div.update-img:hover {
+    opacity: 1;
+}
+
+div.update-img i {
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+div.update-img i:hover {
+    font-size: 1.8em;
+}
+
+.update-img-file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
