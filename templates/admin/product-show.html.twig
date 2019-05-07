@@ -9,21 +9,47 @@
     <div class="wrapper-grid-container">
         <h1>Voir les produits</h1>
         <div>
-            <ul class="nav nav-tabs">
-                {% for category in products.category %}
+            <ul class="nav nav-tabs" id="myTab">
+                {% for category in categories %}
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">{{ category.category }}</a>
+                    <a class="nav-link {% if loop.first %}active{% endif %} " href="#{{ category.category }}" data-toggle="tab" role="tab" id="{{ category.category }}-tab" aria-controls="{{ category.category }}">{{ category.category }}</a>
                 </li>
                {% endfor %}
             </ul>
         </div>
-        <div>
-            <table id="products" class="table table-hover">
-                <thead>
-                    <th>Produit</th>
-                </thead>
-            </table>
+        <!-- TAB PANES -->
+        <div class="tab-content">
+            {% for key, productTab in products %}
+                <div class="tab-pane {% if loop.first %}active{% endif %} " id="{{ key }}" role="tabpanel" aria-labelledby="{{ key }}-tab">
+                    <table class="table table-hover">
+                        <thead>
+                        <th>Nom du produit</th>
+                        <th><i class="fas fa-edit"></i> </th>
+                        <th><i class="fas fa-trash"></i> </th>
+                        </thead>
+                        <tbody>
+                        {% for product in productTab %}
+                        <tr>
+                            <td>{{ product.title }}</td>
+                            <td><i class="fas fa-edit"></i> </td>
+                            <td><i class="fas fa-edit"></i> </td>
+                        </tr>
+                    {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    <script>
+        // $('#myTab a').on('click', function (e) {
+        //     e.preventDefault()
+        //     $(this).tab('show')
+        // })
+    </script>
 {% endblock %}

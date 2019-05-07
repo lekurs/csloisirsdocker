@@ -24,10 +24,11 @@ class ProductShowResponder implements ProductShowResponderInterface
         $this->tiwg = $tiwg;
     }
 
-    public function response(array $products): Response
+    public function response(array $products, array $categories): Response
     {
         return new Response($this->tiwg->render('admin/product-show.html.twig', [
             'products' => $products,
+            'categories' => $categories
         ]));
     }
 }
