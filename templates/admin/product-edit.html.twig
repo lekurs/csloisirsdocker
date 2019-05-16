@@ -25,13 +25,9 @@
                 <div>
                     {% for images in product.images %}
                         <figure class="img-container">
-                            <img src="{{ images.path }}" class="img-fluid {% if loop.first %} main-image {% endif %} product-image" alt="{{ product.title }}" id="blah" />
+                            <img src="{{ images.path }}" class="img-fluid {% if loop.first %} main-image {% endif %} product-image" alt="{{ product.title }}" id="blah" data-id="{{ images.id }}"/>
                             <div class="update-img">
-                                <a href="#"><i class="fas fa-edit"></i>
-                                    <div class="input-img-container">
-                                        <input type="file" name="edit-image" class="update-img-file" id="product-img-file">
-                                    </div>
-                                </a>
+                                <a href="#"><i class="fas fa-star {% if images.main == 1 %}gold {% endif %}" data-id="{{ images.id }}"></i></a>
                                 <a href="#"><i class="fas fa-trash"></i></a>
                             </div>
                         </figure>
@@ -49,23 +45,6 @@
 
 {% block javascripts %}
 {{ parent() }}
-    <script>
-        function readURL(input) {
-
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    $('#blah').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#product-img-file").change(function() {
-            readURL(this);
-        });
-    </script>
-
+<script src="{{ asset('assets/js/admin/delete-image.js') }}"></script>
+<script src="{{ asset('assets/js/admin/image-favorite.js') }}"></script>
 {% endblock %}

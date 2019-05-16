@@ -4,6 +4,7 @@
 namespace App\Domain\Repository;
 
 
+use App\Domain\Models\Image;
 use App\Domain\Models\Product;
 use App\Domain\Repository\Interfaces\ProductRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

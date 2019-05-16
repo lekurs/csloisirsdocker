@@ -15,14 +15,16 @@ final class ImageFactory implements ImageFactoryInterface
      * @param string $path
      * @param Product|null $product
      * @param Gallery|null $gallery
+     * @param bool $main
      * @return Image
      * @throws \Exception
      */
     public function create(
         string $path,
         Product $product = null,
-        Gallery $gallery = null
+        Gallery $gallery = null,
+        bool $main = false
     ): Image {
-        return new Image($path, $product, $gallery);
+        return new Image($path, $product, $gallery, $main);
     }
 }

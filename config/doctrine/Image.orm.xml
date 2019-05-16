@@ -6,9 +6,8 @@
     <entity name="App\Domain\Models\Image" repository-class="App\Domain\Repository\ImageRepository" table="csloisirs_image">
         <id name="id" type="uuid" column="id" />
         <field name="path" type="string" length="255" nullable="false" unique="true" />
+        <field name="main" type="boolean" />
 
-<!--        <many-to-one field="product" target-entity="App\Domain\Models\Product" inversed-by="images" />-->
-<!--        <many-to-one field="gallery" target-entity="App\Domain\Models\Gallery" inversed-by="images" />-->
     </entity>
 
 </doctrine-mapping>

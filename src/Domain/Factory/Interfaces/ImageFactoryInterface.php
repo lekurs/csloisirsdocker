@@ -14,11 +14,13 @@ interface ImageFactoryInterface
      * @param string $path
      * @param Product|null $product
      * @param Gallery|null $gallery
+     * @param bool $main
      * @return Image
      */
     public function create(
         string $path,
         Product $product = null,
-        Gallery $gallery = null
+        Gallery $gallery = null,
+        bool $main = false
     ): Image;
 }

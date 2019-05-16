@@ -9,7 +9,7 @@ use App\Domain\Repository\Interfaces\ImageRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
-class ImageRepository extends ServiceEntityRepository implements ImageRepositoryInterface
+final class ImageRepository extends ServiceEntityRepository implements ImageRepositoryInterface
 {
     /**
      * ImageRepository constructor.
@@ -19,5 +19,36 @@ class ImageRepository extends ServiceEntityRepository implements ImageRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Image::class);
+    }
+
+    public function getOneById($id): Image
+    {
+        return $this->createQueryBuilder('image')
+                                ->where('image.id = :id')
+                                ->setParameter('id', $id)
+                                ->getQuery()
+                                ->getOneOrNullResult();
+    }
+
+    public function edit(): void
+    {
+        $this->_em->flush();
+    }
+
+    public function setMainImage(Image $image): void
+    {
+        if ($image->isMain() == false) {
+            $image->updateMainImage(true);
+        } else {
+            $image->updateMainImage(false);
+        }
+
+        $this->_em->flush();
+    }
+
+    public function removeImage(Image $image): void
+    {
+        $this->_em->remove($image);
+        $this->_em->flush();
     }
 }

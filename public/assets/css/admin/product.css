@@ -53,3 +53,7 @@ div.update-img i:hover {
     opacity: 0;
     cursor: pointer;
 }
+
+.fa-star.gold {
+    color: gold;
+}
