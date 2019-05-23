@@ -7,7 +7,7 @@ services:
         volumes:
             - ./:/srv/app
             - ./docker/php/php.ini:/usr/local/etc/php/php.ini
-        restart: always
+#        restart: always
 
 
     nginx:

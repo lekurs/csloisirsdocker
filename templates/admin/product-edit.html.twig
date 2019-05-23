@@ -3,6 +3,7 @@
 {% block stylesheet %}
 {{ parent() }}
     <link href="{{ asset('assets/css/admin/product.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/global/uploaded-image-plugin.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block title %}
@@ -39,12 +40,19 @@
                 {{ form_end(form) }}
                 </div>
             </div>
+            <div id="plugin"></div>
         </div>
     </section>
 {% endblock %}
 
 {% block javascripts %}
 {{ parent() }}
+<script src="{{ asset('assets/js/admin/image-add.js') }}"></script>
 <script src="{{ asset('assets/js/admin/delete-image.js') }}"></script>
 <script src="{{ asset('assets/js/admin/image-favorite.js') }}"></script>
+    <script>
+        $('#plugin').uploadedImg({
+            script: '{{ path('imageAdd') }}',
+        });
+    </script>
 {% endblock %}
