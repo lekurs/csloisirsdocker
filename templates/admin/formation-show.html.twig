@@ -24,7 +24,7 @@
                         <td class="category-editable" >{{ formation.area.name}}</td>
                         <td>{{ formation.startDate | date('d/m/Y') }}</td>
                         <td>{{ formation.endDate | date('d/m/Y') }}</td>
-                        <td><a href="{{ path('formationEdit', {'slug': formation.id}) }}"><i class="fas fa-edit" data-id="{{ formation.id }}"></i></a> </td>
+                        <td><a href="{{ path('formationEdit', {'slug': formation.slug}) }}"><i class="fas fa-edit" data-id="{{ formation.id }}"></i></a> </td>
                         <td><i class="fas fa-trash" data-id="{{ formation.id }}"></i></td>
                     </tr>
                 {% endfor %}
