@@ -13,11 +13,23 @@
 
             let content = $('<div>').addClass(o.class + '-content');
             let input = $('<input type="file" name="upload-file-">').addClass(o.class + '-input');
+            let img = $('<img>').addClass(o.class + '-image');
             let submit = $('<button type="submit">Ajouter</button>').addClass('btn').addClass('btn-mout');
 
             $(elt).append(content);
             content = $(content).append(input);
-            content.after(submit);
+            content.append(img);
+            $(elt).after(submit);
+        },
+        
+        areaCreation: function (latest) {
+            let content = $('<div>').addClass(o.class + '-content');
+            let input = $('<input type="file" name="upload-file-">').addClass(o.class + '-input');
+            let img = $('<img>').addClass(o.class + '-image');
+
+            $(latest).after(content);
+            $(content).append(input);
+            content.append(img);
         }
     }
 
@@ -33,12 +45,19 @@
             let area = Object.create(uploadArea);
             area.init(elt, o);
 
-            console.log(o.script);
+            $('.' + o.class + '-input').on('change', function (e, index) {
+                const files = e.target.files;
 
-            $('.' + o.class + '-input').on('change', function (e) {
-                var files = e.target.files;
                 console.log(files);
-                upload(files, 0);
+                //On affiche la miniature
+                let img = $(this).next('img');
+                $(this).next('img').css('display', 'block');
+                read($(this), img);
+
+                //Création d'une nouvelle zone une fois l'image envoyée
+                area.areaCreation($(this).parent());
+
+                // upload(files, 0);
             });
         });
 
@@ -52,6 +71,21 @@
             xhr.setRequestHeader('x-file-name', file.name);
             xhr.setRequestHeader('x-file-size', file.size);
             xhr.send(file);
+        };
+
+        function read(input, img) {
+            // if (input.files && input.files[0]) {
+            console.log(input, img);
+                let reader = new FileReader();
+
+                console.log('ok');
+                reader.onload = function(e) {
+                    console.log('read');
+                    $(img).attr('src', e.target.result);
+                // }
+
+                reader.readAsDataURL(input.files[0]);
+            }
         }
     }
 }(jQuery));
