@@ -16,25 +16,37 @@
     border: 1px solid blue;
 }
 
-.uploaded-images-content::before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f055";
-    font-size: 2em;
+.uploaded-images-plus {
     color: green;
+    font-size: 2em;
     position: absolute;
-    width: auto;
-    height: auto;
-    font-weight: 900;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    z-index: 1000;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -ms-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
+
+/*.uploaded-images-content::before {*/
+/*    font-family: "Font Awesome 5 Free";*/
+/*    content: "\f055";*/
+/*    font-size: 2em;*/
+/*    color: green;*/
+/*    position: absolute;*/
+/*    width: auto;*/
+/*    height: auto;*/
+/*    font-weight: 900;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    cursor: pointer;*/
+/*    -webkit-transition: all .3s ease-in-out;*/
+/*    -moz-transition: all .3s ease-in-out;*/
+/*    -ms-transition: all .3s ease-in-out;*/
+/*    -o-transition: all .3s ease-in-out;*/
+/*    transition: all .3s ease-in-out;*/
+/*}*/
 
 .uploaded-images-content:hover.uploaded-images-content::before {
     font-size: 3em;
@@ -44,6 +56,8 @@
     opacity: 0;
     width: 100%;
     height: 100%;
+    cursor: pointer;
+    z-index: 1002;
 }
 
 .uploaded-images-image {
@@ -54,5 +68,4 @@
     width: 100%;
     height: 100%;
     z-index: 1001;
-    display: none;
 }

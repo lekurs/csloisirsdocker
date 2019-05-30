@@ -51,8 +51,10 @@
 <script src="{{ asset('assets/js/admin/delete-image.js') }}"></script>
 <script src="{{ asset('assets/js/admin/image-favorite.js') }}"></script>
     <script>
-        $('#plugin').uploadedImg({
-            script: '{{ path('imageAdd') }}',
+        $(document).ready(function () {
+            $('#plugin').uploadedImg({
+                script: '{{ path('imageAdd') }}',
+            });
         });
     </script>
 {% endblock %}

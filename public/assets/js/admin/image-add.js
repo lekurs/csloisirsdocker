@@ -3,33 +3,64 @@
     var o = {
         class: 'uploaded-images',
         script: '',
-
+        auto: true,
     }
+    var elt;
 
     //Création HTML
     var uploadArea = {
         init: function (elt) {
             $(elt).addClass(o.class + '-container');
 
-            let content = $('<div>').addClass(o.class + '-content');
-            let input = $('<input type="file" name="upload-file-">').addClass(o.class + '-input');
-            let img = $('<img>').addClass(o.class + '-image');
-            let submit = $('<button type="submit">Ajouter</button>').addClass('btn').addClass('btn-mout');
-
-            $(elt).append(content);
-            content = $(content).append(input);
-            content.append(img);
-            $(elt).after(submit);
+            uploadArea.areaCreation();
         },
         
-        areaCreation: function (latest) {
+        areaCreation: function () {
+            //On initialise la variable pour faire un test de changement de l'input ou NON.
+            let changeOff = false;
+
             let content = $('<div>').addClass(o.class + '-content');
-            let input = $('<input type="file" name="upload-file-">').addClass(o.class + '-input');
+            let plus = $('<i>').addClass('fa fa-plus-circle').addClass(o.class +'-plus');
+            //Création de l'input + création d'une nouvelle box au chargement de l'image dans la box
+            let input = $('<input type="file" name="upload-file-">').addClass(o.class + '-input').change(function () {
+                changeOff = true;
+                //On cache le +
+                $(this).parent().find('.' + o.class + '-plus').hide();
+
+                //On affiche la miniature
+                // this === objet | $(this) => element du DOM
+                uploadArea.previewsImage(this);
+
+                //Création d'une nouvelle zone une fois l'image envoyée
+                uploadArea.areaCreation();
+
+                //DECOMMENTEZ POUR UPLOAD
+                // upload(files, 0);
+
+            }).mouseenter(function () {
+                $(this).parent().find('.' + o.class + '-plus').show().css('z-index', '1004');
+            }).mouseleave(function () {
+                if (changeOff) {
+                    $(this).parent().find('.' + o.class + '-plus').hide().css('z-index', '1000');
+                }
+            });
             let img = $('<img>').addClass(o.class + '-image');
 
-            $(latest).after(content);
-            $(content).append(input);
+            $(elt).append(content);
+            $(content).append(plus).append(input);
             content.append(img);
+        },
+        
+        previewsImage: function (files) {
+            let reader = new FileReader();
+
+            reader.onload = function () {
+            console.log($(files).parent().find('img'));
+            let target = $(files).parent().find('img');
+
+            target.attr('src', reader.result);
+            }
+            reader.readAsDataURL(files.files[0]);
         }
     }
 
@@ -39,26 +70,11 @@
     $.fn.uploadedImg = function (options) {
         if(options) $.extend(o,options);
         $(this).each(function () {
-            const elt = this;
+            elt = this;
 
             //Lancement du plugin
             let area = Object.create(uploadArea);
             area.init(elt, o);
-
-            $('.' + o.class + '-input').on('change', function (e, index) {
-                const files = e.target.files;
-
-                console.log(files);
-                //On affiche la miniature
-                let img = $(this).next('img');
-                $(this).next('img').css('display', 'block');
-                read($(this), img);
-
-                //Création d'une nouvelle zone une fois l'image envoyée
-                area.areaCreation($(this).parent());
-
-                // upload(files, 0);
-            });
         });
 
         function upload(files, index) {
@@ -73,19 +89,19 @@
             xhr.send(file);
         };
 
-        function read(input, img) {
-            // if (input.files && input.files[0]) {
-            console.log(input, img);
-                let reader = new FileReader();
-
-                console.log('ok');
-                reader.onload = function(e) {
-                    console.log('read');
-                    $(img).attr('src', e.target.result);
-                // }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+        // function read(input, img) {
+        //     // if (input.files && input.files[0]) {
+        //     console.log(input, img);
+        //         let reader = new FileReader();
+        //
+        //         console.log('ok');
+        //         reader.onload = function(e) {
+        //             console.log('read');
+        //             $(img).attr('src', e.target.result);
+        //         // }
+        //
+        //         reader.readAsDataURL(input.files[0]);
+        //     }
+        // }
     }
 }(jQuery));
