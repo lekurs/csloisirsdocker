@@ -95,8 +95,9 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
     {
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $imgTab = [];
+
             if (count($form->getData()->images) > 0) {
-                $imgTab = [];
                 foreach ($form->getData()->images as $imgUploadedDTO) {
                     foreach($imgUploadedDTO as $img) {
                         $imgTab[] = $this->imageFactory->create($this->dirImagesPath . $img->getClientOriginalName());

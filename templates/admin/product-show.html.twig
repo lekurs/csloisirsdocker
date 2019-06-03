@@ -10,9 +10,9 @@
         <h1>Voir les produits</h1>
         <div>
             <ul class="nav nav-tabs" id="myTab">
-                {% for category in categories %}
+                {% for keyCat, category in products %}
                 <li class="nav-item">
-                    <a class="nav-link {% if loop.first %}active{% endif %} " href="#{{ category.category }}" data-toggle="tab" role="tab" id="{{ category.category }}-tab" aria-controls="{{ category.category }}">{{ category.category }}</a>
+                    <a class="nav-link {% if loop.first %}active{% endif %} " href="#{{ keyCat }}" data-toggle="tab" role="tab" id="{{ keyCat }}-tab" aria-controls="{{ keyCat }}">{{ keyCat }}</a>
                 </li>
                {% endfor %}
             </ul>
@@ -28,11 +28,11 @@
                         <th><i class="fas fa-trash"></i> </th>
                         </thead>
                         <tbody>
-                        {% for product in productTab %}
+                        {% for keyTab, product in productTab %}
                         <tr>
                             <td>{{ product.title }}</td>
                             <td><a href="{{ path('productEdit', {'slug': product.slug}) }}"><i class="fas fa-edit"></i></a></td>
-                            <td><i class="fas fa-edit"></i> </td>
+                            <td><i class="fas fa-trash del-product" data-id="{{ product.id }}"></i></td>
                         </tr>
                     {% endfor %}
                         </tbody>
@@ -49,10 +49,5 @@
 
 {% block javascripts %}
 {{ parent() }}
-    <script>
-        // $('#myTab a').on('click', function (e) {
-        //     e.preventDefault()
-        //     $(this).tab('show')
-        // })
-    </script>
+    <script src="{{ asset('assets/js/admin/product-delete.js') }}"></script>
 {% endblock %}

@@ -43,13 +43,10 @@ class ProductShowAction implements ProductShowActionInterface
         $products = $this->productRepo->getAll();
         $categories = $this->categoryRepo->getAll();
 
-//        dd($products);
         $productsTab = [];
         foreach ($products as  $product) {
             $productsTab[$product->getCategory()->getCategory()][] = $product;
         }
-
-//        dd($productsTab);
 
         return $responder->response($productsTab, $categories);
     }
