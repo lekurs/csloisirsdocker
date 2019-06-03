@@ -8,7 +8,7 @@ use App\UI\Responder\Interfaces\ProductShowResponderInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
-class ProductShowResponder implements ProductShowResponderInterface
+final class ProductShowResponder implements ProductShowResponderInterface
 {
     /**
      * @var Environment
@@ -24,6 +24,9 @@ class ProductShowResponder implements ProductShowResponderInterface
         $this->tiwg = $tiwg;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function response(array $products, array $categories): Response
     {
         return new Response($this->tiwg->render('admin/product-show.html.twig', [

@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * Class ProductDeleteAction
  * @Route(name="productDelete", path="admin/product/del/{id}")
  */
-class ProductDeleteAction implements ProductDeleteActionInterface
+final class ProductDeleteAction implements ProductDeleteActionInterface
 {
     /**
      * @var ProductRepositoryInterface
@@ -24,6 +24,7 @@ class ProductDeleteAction implements ProductDeleteActionInterface
 
     /**
      * ProductDeleteAction constructor.
+     *
      * @param ProductRepositoryInterface $productRepo
      */
     public function __construct(ProductRepositoryInterface $productRepo)
@@ -31,6 +32,9 @@ class ProductDeleteAction implements ProductDeleteActionInterface
         $this->productRepo = $productRepo;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function __invoke(Request $request, ProductDeleteResponderInterface $responder): JsonResponse
     {
         $product = $this->productRepo->getOneById($request->attributes->get('id'));
