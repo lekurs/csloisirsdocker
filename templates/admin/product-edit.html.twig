@@ -23,25 +23,24 @@
                 <div class="floating-label" style="margin: 2em 0">
                     {{ form_widget(form.category) }}
                 </div>
-                <div>
+                <div class="images-container">
                     {% for images in product.images %}
                         <figure class="img-container">
-                            <img src="{{ images.path }}" class="img-fluid {% if loop.first %} main-image {% endif %} product-image" alt="{{ product.title }}" id="blah" data-id="{{ images.id }}"/>
+                            <img src="{{ images.path }}" class="img-fluid  product-image" alt="{{ product.title }}" id="blah" data-id="{{ images.id }}"/>
                             <div class="update-img">
                                 <a href="#"><i class="fas fa-star {% if images.main == 1 %}gold {% endif %}" data-id="{{ images.id }}"></i></a>
                                 <a href="#"><i class="fas fa-trash"></i></a>
                             </div>
                         </figure>
                     {% endfor %}
-                </figure>
-                <div>
+                </div>
+                <div style="margin-bottom: 2em;">
                     <button type="submit" class="btn btn-mout">Enregistrer</button>
                 </div>
                 {{ form_end(form) }}
                 </div>
+            <div id="uploaded-images"></div>
             </div>
-            <div id="plugin"></div>
-        </div>
     </section>
 {% endblock %}
 
@@ -52,8 +51,8 @@
 <script src="{{ asset('assets/js/admin/image-favorite.js') }}"></script>
     <script>
         $(document).ready(function () {
-            $('#plugin').uploadedImg({
-                script: '{{ path('imageAdd') }}',
+            $('#uploaded-images').uploadedImg({
+                script: '{{ path('imageAdd', {'productId': product.id}) }}',
             });
         });
     </script>

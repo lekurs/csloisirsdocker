@@ -3,7 +3,6 @@
     grid-auto-flow: column;
     grid-template-columns: repeat(auto-fit, 150px);
     grid-gap: 10px;
-    border: 1px solid red;
 }
 
 .uploaded-images-content {
@@ -13,11 +12,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid blue;
+    border: 1px #4e555b;
 }
 
 .uploaded-images-plus {
-    color: green;
     font-size: 2em;
     position: absolute;
     z-index: 1000;

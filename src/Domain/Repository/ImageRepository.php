@@ -5,6 +5,7 @@ namespace App\Domain\Repository;
 
 
 use App\Domain\Models\Image;
+use App\Domain\Models\Product;
 use App\Domain\Repository\Interfaces\ImageRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -49,6 +50,13 @@ final class ImageRepository extends ServiceEntityRepository implements ImageRepo
     public function removeImage(Image $image): void
     {
         $this->_em->remove($image);
+        $this->_em->flush();
+    }
+
+    public function addOne(Image $image, Product $product): void
+    {
+        $product->addImage($image);
+        $this->_em->persist($image);
         $this->_em->flush();
     }
 }

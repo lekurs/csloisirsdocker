@@ -22,7 +22,7 @@
             let content = $('<div>').addClass(o.class + '-content');
             let plus = $('<i>').addClass('fa fa-plus-circle').addClass(o.class +'-plus');
             //Création de l'input + création d'une nouvelle box au chargement de l'image dans la box
-            let input = $('<input type="file" name="upload-file-">').addClass(o.class + '-input').change(function () {
+            let input = $('<input type="file" name="upload-file">').addClass(o.class + '-input').change(function (e) {
                 changeOff = true;
                 //On cache le +
                 $(this).parent().find('.' + o.class + '-plus').hide();
@@ -34,8 +34,8 @@
                 //Création d'une nouvelle zone une fois l'image envoyée
                 uploadArea.areaCreation();
 
-                //DECOMMENTEZ POUR UPLOAD
-                // upload(files, 0);
+                //UPLOAD
+                uploadArea.upload(e.target.files, 0);
 
             }).mouseenter(function () {
                 $(this).parent().find('.' + o.class + '-plus').show().css('z-index', '1004');
@@ -50,18 +50,32 @@
             $(content).append(plus).append(input);
             content.append(img);
         },
-        
+
+        //Méthode d'affichage de la miniature
         previewsImage: function (files) {
             let reader = new FileReader();
 
             reader.onload = function () {
-            console.log($(files).parent().find('img'));
+
             let target = $(files).parent().find('img');
 
             target.attr('src', reader.result);
             }
             reader.readAsDataURL(files.files[0]);
-        }
+        },
+
+        //Méthode d'upload
+        upload: function(files, index) {
+        let file = files[index];
+        let xhr = new XMLHttpRequest();
+
+        xhr.open('post', o.script, true);
+        xhr.setRequestHeader('content-type', 'multipart/form-data');
+        xhr.setRequestHeader('x-file-type', file.type);
+        xhr.setRequestHeader('x-file-name', file.name);
+        xhr.setRequestHeader('x-file-size', file.size);
+        xhr.send(file);
+        },
     }
 
     //Création des fonctions utilisables dans le plugin
@@ -77,31 +91,16 @@
             area.init(elt, o);
         });
 
-        function upload(files, index) {
-            var file = files[index];
-            var xhr = new XMLHttpRequest();
-
-            xhr.open('post', o.script, true);
-            xhr.setRequestHeader('content-type', 'multipart/form-data');
-            xhr.setRequestHeader('x-file-type', file.type);
-            xhr.setRequestHeader('x-file-name', file.name);
-            xhr.setRequestHeader('x-file-size', file.size);
-            xhr.send(file);
-        };
-
-        // function read(input, img) {
-        //     // if (input.files && input.files[0]) {
-        //     console.log(input, img);
-        //         let reader = new FileReader();
+        // function upload(files, index) {
+        //     var file = files[index];
+        //     var xhr = new XMLHttpRequest();
         //
-        //         console.log('ok');
-        //         reader.onload = function(e) {
-        //             console.log('read');
-        //             $(img).attr('src', e.target.result);
-        //         // }
-        //
-        //         reader.readAsDataURL(input.files[0]);
-        //     }
-        // }
+        //     xhr.open('post', o.script, true);
+        //     xhr.setRequestHeader('content-type', 'multipart/form-data');
+        //     xhr.setRequestHeader('x-file-type', file.type);
+        //     xhr.setRequestHeader('x-file-name', file.name);
+        //     xhr.setRequestHeader('x-file-size', file.size);
+        //     xhr.send(file);
+        // };
     }
 }(jQuery));

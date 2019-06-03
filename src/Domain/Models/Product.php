@@ -102,4 +102,9 @@ class Product
         $this->category = $DTO->category;
         $this->slug = $DTO->slug;
     }
+
+    public function addImage(Image $image): void
+    {
+        $this->images[] = $image;
+    }
 }

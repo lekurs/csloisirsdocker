@@ -35,6 +35,15 @@ class ProductRepository extends ServiceEntityRepository implements ProductReposi
                                 ->getOneOrNullResult();
     }
 
+    public function getOneById($id): Product
+    {
+        return $this->createQueryBuilder('product')
+            ->where('product.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     public function save(Product $product): void
     {
         $this->_em->persist($product);
