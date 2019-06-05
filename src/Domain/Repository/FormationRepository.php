@@ -32,6 +32,15 @@ class FormationRepository extends ServiceEntityRepository implements FormationRe
                                 ->getOneOrNullResult();
     }
 
+    public function getAllInProgress(): array
+    {
+        return $this->createQueryBuilder('formation')
+                                ->where('formation.endDate > :now')
+                                ->setParameter('now', new \DateTime('now'))
+                                ->getQuery()
+                                ->getResult();
+    }
+
     public function getOneBySlug($slug): Formation
     {
         return $this->createQueryBuilder('formation')

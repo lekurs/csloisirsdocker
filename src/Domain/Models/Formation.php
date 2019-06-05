@@ -32,6 +32,12 @@ class Formation
     private $title;
 
     /**
+     * @var string
+     */
+    private $description;
+
+
+    /**
      * @var int
      */
     private $price;
@@ -61,10 +67,11 @@ class Formation
      * @param \DateTime $startDate
      * @param \DateTime $endDate
      * @param string $title
+     * @param string $description
+     * @param Area $area
+     * @param string $slug
      * @param int $price
      * @param int $availableSeats
-     * @param string $slug
-     * @param Area $area
      * @param Gallery $gallery
      * @throws \Exception
      */
@@ -72,6 +79,7 @@ class Formation
         \DateTime $startDate,
         \DateTime $endDate,
         string $title,
+        string $description,
         Area $area,
         string $slug,
         int $price = null,
@@ -82,6 +90,7 @@ class Formation
         $this->startDate = $startDate;
         $this->endDate = $endDate;
         $this->title = $title;
+        $this->description = $description;
         $this->area = $area;
         $this->slug = $slug;
         $this->price = $price;
@@ -161,9 +170,18 @@ class Formation
         return $this->gallery;
     }
 
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
     public function edit(FormationEditFormDTO $DTO): void
     {
         $this->title = $DTO->title;
+        $this->description = $DTO->description;
         $this->startDate = $DTO->startDate;
         $this->endDate = $DTO->endDate;
         $this->area = $DTO->area;

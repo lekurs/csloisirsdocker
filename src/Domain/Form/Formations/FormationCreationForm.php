@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -41,6 +42,12 @@ class FormationCreationForm extends AbstractType
                 'label' => 'Titre du stage *',
                 'required' => true,
             ])
+            ->add('description', TextareaType::class, [
+                'label_attr' => ['class' => 'float'],
+                'attr' => ['class' => 'floating-area', 'placeholder' => ' '],
+                'label' => 'Description du stage *',
+                'required' => true,
+            ])
             ->add('area', EntityType::class, [
                 'class' => Area::class,
                 'choice_label' => 'name',
@@ -69,6 +76,7 @@ class FormationCreationForm extends AbstractType
                    $form->get('startDate')->getData(),
                    $form->get('endDate')->getData(),
                    $form->get('title')->getData(),
+                   $form->get('description')->getData(),
                    $form->get('area')->getData(),
                    $form->get('price')->getData(),
                    $form->get('availableSeats')->getData()

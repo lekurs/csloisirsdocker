@@ -14,6 +14,7 @@ interface FormationEditFormDTOInterface
      * @param \DateTime $startDate
      * @param \DateTime $endDate
      * @param string $title
+     * @param string $description
      * @param Area $area
      * @param string $slug
      * @param int|null $price
@@ -23,6 +24,7 @@ interface FormationEditFormDTOInterface
         \DateTime $startDate,
         \DateTime $endDate,
         string $title,
+        string $description,
         Area $area,
         string $slug,
         int $price = null,

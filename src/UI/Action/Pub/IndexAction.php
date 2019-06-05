@@ -3,32 +3,40 @@
 
 namespace App\UI\Action\Pub;
 
+use App\Domain\Repository\Interfaces\FormationRepositoryInterface;
+use App\UI\Action\Interfaces\IndexActionInterface;
+use App\UI\Responder\Interfaces\IndexResponderInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Twig\Environment;
 
 /**
  * Class IndexAction
  * @Route(name="index", path="/")
  */
-class IndexAction
+final class IndexAction implements IndexActionInterface
 {
     /**
-     * @var Environment
+     * @var FormationRepositoryInterface
      */
-    private $twig;
+    private $formationRepo;
 
     /**
      * IndexAction constructor.
-     * @param Environment $twig
+     * @param FormationRepositoryInterface $formationRepo
      */
-    public function __construct(Environment $twig)
+    public function __construct(FormationRepositoryInterface $formationRepo)
     {
-        $this->twig = $twig;
+        $this->formationRepo = $formationRepo;
     }
 
-    public function __invoke()
+
+    /**
+     * @inheritDoc
+     */
+    public function __invoke(IndexResponderInterface $responder): Response
     {
-        return new Response($this->twig->render('/layout/layout.html.twig'));
+        $formations = $this->formationRepo->getAllInProgress();
+
+        return $responder->response($formations);
     }
 }

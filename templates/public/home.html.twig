@@ -1,0 +1,22 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block container %}
+<section>
+    <h1>test de la home</h1>
+    <div class="wrapper-grid-container">
+        <div  class="home-wrapper-grid">
+            <div><img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" alt="test" class="img-fluid" /> </div>
+            <div>
+                <h2 id="stage-title">Stages</h2>
+                {% for formation in formations %}
+                    <div>
+                        <h3>{{ formation.title }}</h3>
+                        <p>{{ formation.description }}</p>
+                        <p>- <strong>Du {{ formation.startDate|localizeddate('none', 'none', 'fr', null, 'EEEE d MMMM Y') }} au {{ formation.endDate|localizeddate('none', 'none', 'fr', null, 'EEEE d MMMM Y') }}</strong></p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

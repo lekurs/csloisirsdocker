@@ -14,10 +14,11 @@ interface FormationFactoryInterface
      * @param \DateTime $startDate
      * @param \DateTime $endDate
      * @param string $title
+     * @param string $description
+     * @param Area $area
+     * @param string $slug
      * @param int $price
      * @param int $avalaibleSeats
-     * @param string $slug
-     * @param Area $area
      * @param Gallery|null $gallery
      * @return Formation
      */
@@ -25,6 +26,7 @@ interface FormationFactoryInterface
         \DateTime $startDate,
         \DateTime $endDate,
         string $title,
+        string $description,
         Area $area,
         string $slug,
         int $price = null,

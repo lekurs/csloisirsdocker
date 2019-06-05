@@ -70,6 +70,7 @@ class FormationCreationFormHandler implements FormationCreationFormHandlerInterf
                 $form->getData()->startDate,
                 $form->getData()->endDate,
                 $form->getData()->title,
+                $form->getData()->description,
                 $form->getData()->area,
                 $this->slugHelper->replace($form->getData()->title),
                 $form->getData()->price,

@@ -25,6 +25,11 @@ final class FormationEditFormDTO implements FormationEditFormDTOInterface
     public $title;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var int
      */
     public $price;
@@ -47,18 +52,13 @@ final class FormationEditFormDTO implements FormationEditFormDTOInterface
     /**
      * FormationEditFormDTO constructor.
      *
-     * @param \DateTime $startDate
-     * @param \DateTime $endDate
-     * @param string $title
-     * @param Area $area
-     * @param string $slug
-     * @param int|null $price
-     * @param int|null $availableSeats
+     * @inheritDoc
      */
     public function __construct(
         \DateTime $startDate,
         \DateTime $endDate,
         string $title,
+        string $description,
         Area $area,
         string $slug,
         int $price = null,
@@ -67,6 +67,7 @@ final class FormationEditFormDTO implements FormationEditFormDTOInterface
         $this->startDate = $startDate;
         $this->endDate = $endDate;
         $this->title = $title;
+        $this->description = $description;
         $this->area = $area;
         $this->slug = $slug;
         $this->price = $price;

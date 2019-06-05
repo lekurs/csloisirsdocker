@@ -10,6 +10,7 @@
         <field name="title" type="string" length="150" nullable="false" unique="false" />
         <field name="price" type="integer" nullable="true" />
         <field name="availableSeats" type="integer" nullable="true" />
+        <field name="description" type="text" nullable="true" />
         <field name="slug" type="string" nullable="false" unique="true" />
 
         <many-to-one field="area" target-entity="App\Domain\Models\Area" inversed-by="formations" />

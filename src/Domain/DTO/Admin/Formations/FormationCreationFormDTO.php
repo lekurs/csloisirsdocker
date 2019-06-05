@@ -25,6 +25,11 @@ final class FormationCreationFormDTO implements FormationCreationFormDTOInterfac
     public $title;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var int
      */
     public $price;
@@ -46,6 +51,7 @@ final class FormationCreationFormDTO implements FormationCreationFormDTOInterfac
         \DateTime $startDate,
         \DateTime $endDate,
         string $title,
+        string $description,
         Area $area,
         int $price = null,
         int $availableSeats = null
@@ -53,6 +59,7 @@ final class FormationCreationFormDTO implements FormationCreationFormDTOInterfac
         $this->startDate = $startDate;
         $this->endDate = $endDate;
         $this->title = $title;
+        $this->description = $description;
         $this->area = $area;
         $this->price = $price;
         $this->availableSeats = $availableSeats;
