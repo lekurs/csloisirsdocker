@@ -10,12 +10,14 @@
                 <h2 id="stage-title">Stages</h2>
                 {% for formation in formations %}
                     <div>
+                        {{ formation.area.name }}
                         <h3>{{ formation.title }}</h3>
                         <p>{{ formation.description }}</p>
                         <p>- <strong>Du {{ formation.startDate|localizeddate('none', 'none', 'fr', null, 'EEEE d MMMM Y') }} au {{ formation.endDate|localizeddate('none', 'none', 'fr', null, 'EEEE d MMMM Y') }}</strong></p>
                     </div>
                 {% endfor %}
             </div>
+            <div class="column-2">column2</div>
         </div>
     </div>
 </section>

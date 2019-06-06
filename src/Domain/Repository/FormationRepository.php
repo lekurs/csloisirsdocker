@@ -35,6 +35,7 @@ class FormationRepository extends ServiceEntityRepository implements FormationRe
     public function getAllInProgress(): array
     {
         return $this->createQueryBuilder('formation')
+                                ->leftJoin('formation.area', 'area')
                                 ->where('formation.endDate > :now')
                                 ->setParameter('now', new \DateTime('now'))
                                 ->getQuery()

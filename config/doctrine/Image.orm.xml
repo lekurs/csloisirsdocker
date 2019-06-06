@@ -8,6 +8,9 @@
         <field name="path" type="string" length="255" nullable="false" unique="true" />
         <field name="main" type="boolean" />
 
+        <many-to-one field="gallery" target-entity="App\Domain\Models\Gallery" inversed-by="images" />
+        <many-to-one field="area" target-entity="App\Domain\Models\Area" inversed-by="images" />
+
     </entity>
 
 </doctrine-mapping>

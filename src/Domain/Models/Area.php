@@ -40,6 +40,11 @@ class Area
     private $formations;
 
     /**
+     * @var \ArrayAccess
+     */
+    private $images;
+
+    /**
      * Area constructor.
      *
      * @param string $name
@@ -107,6 +112,14 @@ class Area
     public function getFormations(): \ArrayAccess
     {
         return $this->formations;
+    }
+
+    /**
+     * @return \ArrayAccess
+     */
+    public function getImages(): \ArrayAccess
+    {
+        return $this->images;
     }
 
     public function edit(AreaFormDTO $DTO): void

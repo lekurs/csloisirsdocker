@@ -5,6 +5,7 @@ namespace App\Domain\Factory;
 
 
 use App\Domain\Factory\Interfaces\ImageFactoryInterface;
+use App\Domain\Models\Area;
 use App\Domain\Models\Gallery;
 use App\Domain\Models\Image;
 use App\Domain\Models\Product;
@@ -16,6 +17,7 @@ final class ImageFactory implements ImageFactoryInterface
      * @param Product|null $product
      * @param Gallery|null $gallery
      * @param bool $main
+     * @param Area|null $area
      * @return Image
      * @throws \Exception
      */
@@ -23,8 +25,9 @@ final class ImageFactory implements ImageFactoryInterface
         string $path,
         Product $product = null,
         Gallery $gallery = null,
-        bool $main = false
+        bool $main = false,
+        Area $area = null
     ): Image {
-        return new Image($path, $product, $gallery, $main);
+        return new Image($path, $product, $gallery, $main, $area);
     }
 }
