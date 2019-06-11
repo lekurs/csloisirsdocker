@@ -9,7 +9,7 @@
         <field name="main" type="boolean" />
 
         <many-to-one field="gallery" target-entity="App\Domain\Models\Gallery" inversed-by="images" />
-        <many-to-one field="area" target-entity="App\Domain\Models\Area" inversed-by="images" />
+<!--        <many-to-one field="area" target-entity="App\Domain\Models\Area" inversed-by="images" />-->
 
     </entity>
 

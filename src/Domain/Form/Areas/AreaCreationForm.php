@@ -4,16 +4,17 @@
 namespace App\Domain\Form\Areas;
 
 
-use App\Domain\DTO\Admin\Parameters\AreaFormDTO;
-use App\Domain\DTO\Interfaces\AreaFormDTOInterface;
+use App\Domain\DTO\Admin\Parameters\AreaCreationFormDTO;
+use App\Domain\DTO\Interfaces\AreaCreationFormDTOInterface;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AreaForm extends AbstractType
+class AreaCreationForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -41,19 +42,24 @@ class AreaForm extends AbstractType
                 'attr' => ['class' => 'floating-input', 'placeholder' => ' '],
                 'label' => 'Ville *',
                 'required' => true,
+            ])
+            ->add('image', FileType::class, [
+                'label' => 'Photo du lieu de stage',
+                'required' => false,
             ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => AreaFormDTOInterface::class,
+            'data_class' => AreaCreationFormDTOInterface::class,
             'empty_data' => function (FormInterface $form) {
-                return new AreaFormDTO(
+                return new AreaCreationFormDTO(
                     $form->get('name')->getData(),
                     $form->get('address')->getData(),
                     $form->get('zip')->getData(),
-                    $form->get('city')->getData()
+                    $form->get('city')->getData(),
+                    $form->get('image')->getData()
                     );
                 }
             ]);

@@ -4,7 +4,7 @@
 namespace App\Domain\Models;
 
 
-use App\Domain\DTO\Admin\Parameters\AreaFormDTO;
+use App\Domain\DTO\Admin\Parameters\AreaCreationFormDTO;
 use Ramsey\Uuid\Uuid;
 
 class Area
@@ -35,14 +35,14 @@ class Area
     private $city;
 
     /**
-     * @var \ArrayAccess
+     * @var string
      */
-    private $formations;
+    private $image;
 
     /**
      * @var \ArrayAccess
      */
-    private $images;
+    private $formations;
 
     /**
      * Area constructor.
@@ -51,19 +51,22 @@ class Area
      * @param string $address
      * @param int $zip
      * @param string $city
+     * @param string $image
      * @throws \Exception
      */
     public function __construct(
         string $name,
         string $address,
         int $zip,
-        string $city
+        string $city,
+        string $image
     ) {
         $this->id = Uuid::uuid4();
         $this->name = $name;
         $this->address = $address;
         $this->zip = $zip;
         $this->city = $city;
+        $this->image = $image;
     }
 
     /**
@@ -115,14 +118,14 @@ class Area
     }
 
     /**
-     * @return \ArrayAccess
+     * @return string|null
      */
-    public function getImages(): \ArrayAccess
+    public function getImage(): ? string
     {
-        return $this->images;
+        return $this->image;
     }
 
-    public function edit(AreaFormDTO $DTO): void
+    public function edit(AreaCreationFormDTO $DTO): void
     {
         $this->name = $DTO->name;
         $this->address = $DTO->address;

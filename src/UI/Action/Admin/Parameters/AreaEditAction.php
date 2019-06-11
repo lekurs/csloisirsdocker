@@ -4,8 +4,8 @@
 namespace App\UI\Action\Admin\Parameters;
 
 
-use App\Domain\DTO\Admin\Parameters\AreaFormDTO;
-use App\Domain\Form\Areas\AreaForm;
+use App\Domain\DTO\Admin\Parameters\AreaCreationFormDTO;
+use App\Domain\Form\Areas\AreaCreationForm;
 use App\Domain\Handler\Interfaces\AreaEditFormHandlerInterface;
 use App\Domain\Repository\Interfaces\AreaRepositoryInterface;
 use App\UI\Action\Interfaces\AreaEditActionInterface;
@@ -60,14 +60,14 @@ final class AreaEditAction implements AreaEditActionInterface
     {
         $area = $this->areaRepo->getOneById($request->attributes->get('id'));
 
-        $areaEdit = new AreaFormDTO(
+        $areaEdit = new AreaCreationFormDTO(
             $area->getName(),
             $area->getAddress(),
             $area->getZip(),
             $area->getCity()
         );
 
-        $form = $this->formFactory->create(AreaForm::class, $areaEdit)->handleRequest($request);
+        $form = $this->formFactory->create(AreaCreationForm::class, $areaEdit)->handleRequest($request);
 
         if ($this->areaEditHandler->handle($form, $area)) {
 

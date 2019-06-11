@@ -34,33 +34,25 @@ class Image
     private $main;
 
     /**
-     * @var Area
-     */
-    private $area;
-
-    /**
      * Image constructor.
      *
      * @param string $path
      * @param Product|null $product
      * @param Gallery|null $gallery
      * @param bool $main
-     * @param Area $area
      * @throws \Exception
      */
     public function __construct(
         string $path,
         Product $product = null,
         Gallery $gallery = null,
-        bool $main = false,
-        Area $area
+        bool $main = false
     ) {
         $this->id = Uuid::uuid4();
         $this->path = $path;
         $this->product = $product;
         $this->gallery = $gallery;
         $this->main = $main;
-        $this->area = $area;
     }
 
     /**
@@ -82,7 +74,7 @@ class Image
     /**
      * @return Product
      */
-    public function getProduct(): Product
+    public function getProduct(): ? Product
     {
         return $this->product;
     }
@@ -90,17 +82,9 @@ class Image
     /**
      * @return Gallery
      */
-    public function getGallery(): Gallery
+    public function getGallery(): ? Gallery
     {
         return $this->gallery;
-    }
-
-    /**
-     * @return Area
-     */
-    public function getArea(): Area
-    {
-        return $this->area;
     }
 
     /**

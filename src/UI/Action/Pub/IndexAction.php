@@ -37,6 +37,12 @@ final class IndexAction implements IndexActionInterface
     {
         $formations = $this->formationRepo->getAllInProgress();
 
-        return $responder->response($formations);
+        $tabFormation = [];
+
+        foreach ($formations as $formation) {
+            $tabFormation[$formation->getArea()->getName()][] = $formation;
+        }
+
+        return $responder->response($tabFormation);
     }
 }

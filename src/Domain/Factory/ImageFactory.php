@@ -17,7 +17,6 @@ final class ImageFactory implements ImageFactoryInterface
      * @param Product|null $product
      * @param Gallery|null $gallery
      * @param bool $main
-     * @param Area|null $area
      * @return Image
      * @throws \Exception
      */
@@ -25,9 +24,8 @@ final class ImageFactory implements ImageFactoryInterface
         string $path,
         Product $product = null,
         Gallery $gallery = null,
-        bool $main = false,
-        Area $area = null
+        bool $main = false
     ): Image {
-        return new Image($path, $product, $gallery, $main, $area);
+        return new Image($path, $product, $gallery, $main);
     }
 }

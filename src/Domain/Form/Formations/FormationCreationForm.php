@@ -44,7 +44,7 @@ class FormationCreationForm extends AbstractType
             ])
             ->add('description', TextareaType::class, [
                 'label_attr' => ['class' => 'float'],
-                'attr' => ['class' => 'floating-area', 'placeholder' => ' '],
+                'attr' => ['class' => 'floating-textarea', 'placeholder' => ' ', 'rows' => 10],
                 'label' => 'Description du stage *',
                 'required' => true,
             ])

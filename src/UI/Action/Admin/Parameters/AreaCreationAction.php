@@ -4,7 +4,7 @@
 namespace App\UI\Action\Admin\Parameters;
 
 
-use App\Domain\Form\Areas\AreaForm;
+use App\Domain\Form\Areas\AreaCreationForm;
 use App\Domain\Handler\Interfaces\AreaCreationFormHandlerInterface;
 use App\UI\Action\Interfaces\AreaCreationActionInterface;
 use App\UI\Responder\Interfaces\AreaCreationResponderInterface;
@@ -48,7 +48,7 @@ final class AreaCreationAction implements AreaCreationActionInterface
      */
     public function __invoke(Request $request, AreaCreationResponderInterface $responder): Response
     {
-        $form = $this->formFactory->create(AreaForm::class)->handleRequest($request);
+        $form = $this->formFactory->create(AreaCreationForm::class)->handleRequest($request);
 
         if ($this->areaCreationFormHandler->handle($form)) {
 

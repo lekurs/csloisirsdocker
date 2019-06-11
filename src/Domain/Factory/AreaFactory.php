@@ -7,7 +7,7 @@ namespace App\Domain\Factory;
 use App\Domain\Factory\Interfaces\AreaFactoryInterface;
 use App\Domain\Models\Area;
 
-class AreaFactory implements AreaFactoryInterface
+final class AreaFactory implements AreaFactoryInterface
 {
     /**
      * @inheritDoc
@@ -16,8 +16,9 @@ class AreaFactory implements AreaFactoryInterface
         string $name,
         string $address,
         int $zip,
-        string $city
+        string $city,
+        string $path= null
     ): Area {
-        return new Area($name, $address, $zip, $city);
+        return new Area($name, $address, $zip, $city, $path);
     }
 }

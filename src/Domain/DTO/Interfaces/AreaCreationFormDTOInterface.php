@@ -4,20 +4,24 @@
 namespace App\Domain\DTO\Interfaces;
 
 
-interface AreaFormDTOInterface
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+interface AreaCreationFormDTOInterface
 {
     /**
-     * AreaFormDTOInterface constructor.
+     * AreaCreationFormDTOInterface constructor.
      *
      * @param string $name
      * @param string $address
      * @param int $zip
      * @param string $city
+     * @param string $image
      */
     public function __construct(
         string $name,
         string $address,
         int $zip,
-        string $city
+        string $city,
+        UploadedFile $image = null
     );
 }

@@ -16,14 +16,12 @@ interface ImageFactoryInterface
      * @param Product|null $product
      * @param Gallery|null $gallery
      * @param bool $main
-     * @param Area|null $area
      * @return Image
      */
     public function create(
         string $path,
         Product $product = null,
         Gallery $gallery = null,
-        bool $main = false,
-        Area $area = null
+        bool $main = false
     ): Image;
 }

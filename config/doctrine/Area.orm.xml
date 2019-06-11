@@ -9,15 +9,9 @@
         <field name="address" type="string" length="255" nullable="true" unique="false" />
         <field name="zip" type="integer" length="5" nullable="true" unique="false" />
         <field name="city" type="string" length="200" nullable="true" unique="false" />
+        <field name="image" type="string" length="255" nullable="true" unique="false" />
 
         <one-to-many field="formations" target-entity="App\Domain\Models\Formation" mapped-by="area">
-            <cascade>
-                <cascade-persist />
-                <cascade-remove />
-            </cascade>
-        </one-to-many>
-
-        <one-to-many field="images" target-entity="App\Domain\Models\Image" mapped-by="area">
             <cascade>
                 <cascade-persist />
                 <cascade-remove />

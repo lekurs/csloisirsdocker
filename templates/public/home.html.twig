@@ -6,19 +6,57 @@
     <div class="wrapper-grid-container">
         <div  class="home-wrapper-grid">
             <div><img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" alt="test" class="img-fluid" /> </div>
-            <div>
+            <div class="formations-container">
                 <h2 id="stage-title">Stages</h2>
-                {% for formation in formations %}
-                    <div>
-                        {{ formation.area.name }}
-                        <h3>{{ formation.title }}</h3>
+                {% for key, area in formations %}
+                    <div class="formation-content">
+                        <h3 class="area-title">{{ key }}</h3>
+                    {% for formation in area %}
+                        <h4>{{ formation.title }}</h4>
                         <p>{{ formation.description }}</p>
                         <p>- <strong>Du {{ formation.startDate|localizeddate('none', 'none', 'fr', null, 'EEEE d MMMM Y') }} au {{ formation.endDate|localizeddate('none', 'none', 'fr', null, 'EEEE d MMMM Y') }}</strong></p>
+                    {% endfor %}
                     </div>
                 {% endfor %}
             </div>
-            <div class="column-2">column2</div>
         </div>
+
+        <div class="gifts-container">
+            <p><i class="fas fa-gifts fa-2x"></i> </p>
+            <h2>chèque cadeau</h2>
+            <p>À offrir, une journée créative pour découvrir ou se perfectionner en encadrement, cartonnage…</p>
+        </div>
+
+        <div  class="section-wrapper-grid m-top-3">
+            <div class="learn-build-container">
+                <h2 id="learn">APPRENDRE, CRÉER & S’AMUSER</h2>
+                <p>Apprenez le <strong>cartonnage, l’encadrement, la réalisation d’abat-jours et de meubles en carton </strong>
+                    dans mon atelier à <strong>Anet (28260)</strong>. De nombreux objets sont réalisables durant ces ateliers dédiés au carton sous toutes ses formes : boîtes à couture, à tiroirs, rondes,
+                    hexagonales, boîtes déco, coffrets à bijoux, carnets, album-photos, meubles, différents encadrements et diverses formes d’abat-jour….
+                    <strong>avec une progression dans l’apprentissage des techniques</strong>.</p>
+            </div>
+            <div><img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" alt="test" class="img-fluid" /> </div>
+        </div>
+
+        <div class="section-wrapper-grid col-grid-4 m-top-3 gap-1  category-container">
+            <div class="img-category">
+                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
+                <span>blabla</span>
+            </div>
+            <div class="img-category">
+                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
+                <span>blabla</span>
+            </div>
+            <div class="img-category">
+                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
+                <span>blabla</span>
+            </div>
+            <div class="img-category">
+                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
+                <span>blabla</span>
+            </div>
+        </div>
+
     </div>
 </section>
 {% endblock %}
