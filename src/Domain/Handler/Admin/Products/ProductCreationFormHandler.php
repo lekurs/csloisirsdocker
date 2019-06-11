@@ -108,6 +108,7 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
 
             $product = $this->productFactory->create(
                 $form->getData()->title,
+                $form->getData()->description,
                 $form->getData()->category,
                 $imgTab,
                 $this->slugHelper->replace($form->getData()->title)

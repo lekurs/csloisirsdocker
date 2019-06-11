@@ -6,8 +6,10 @@
     {% block stylesheet %}
         <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800|Playfair+Display:400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link href="{{ asset('/assets/vendors/bootstrap.css') }}"  rel="stylesheet">
         <link href="{{ asset('/assets/css/pub/style.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/assets/css/pub/products.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/mout-grid/mout-grid.css') }}" rel="stylesheet" />
     {% endblock %}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -107,7 +109,10 @@
 
         {% block footer %}
         <footer>
-
+            <div class="container-fluid">
+                <p>© Cs Loisirs Creatifs - 535049498/00012</p>
+                <p>3 rue du Champ Hochet 28260 ANET - <a href="#" type="tel">06 08 98 06 84</a> - <a href="#">cathysonnet@wanadoo.fr</a></p>
+            </div>
         </footer>
     {% endblock %}
     </div>

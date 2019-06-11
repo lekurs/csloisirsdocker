@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class CategoryShowAction
+ * Class CategoryPubShowAction
  * @Route(name="categoryShow", path="admin/category/show")
  */
 final class CategoryShowAction implements CategoryShowActionInterface
@@ -22,7 +22,7 @@ final class CategoryShowAction implements CategoryShowActionInterface
     private $categoryRepo;
 
     /**
-     * CategoryShowAction constructor.
+     * CategoryPubShowAction constructor.
      * @param CategoryRepositoryInterfaces $categoryRepo
      */
     public function __construct(CategoryRepositoryInterfaces $categoryRepo)

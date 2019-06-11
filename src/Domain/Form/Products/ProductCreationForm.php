@@ -26,6 +26,12 @@ class ProductCreationForm extends AbstractType
                 'label' => 'Nom du produit *',
                 'required' => true,
             ])
+            ->add('description', TextareaType::class, [
+                'label_attr' => ['class' => 'float'],
+                'attr' => ['class' => 'floating-input', 'placeholder' => ' '],
+                'label' => 'Description du produit *',
+                'required' => true,
+            ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'category',
@@ -44,6 +50,7 @@ class ProductCreationForm extends AbstractType
             'empty_data' => function (FormInterface $form) {
                 return new ProductCreationFormDTO(
                     $form->get('title')->getData(),
+                    $form->get('description')->getData(),
                     $form->get('category')->getData(),
                     $form->get('images')->getData()
                 );

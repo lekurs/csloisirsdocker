@@ -3,6 +3,7 @@
 
 namespace App\UI\Action\Pub;
 
+use App\Domain\Repository\Interfaces\CategoryRepositoryInterfaces;
 use App\Domain\Repository\Interfaces\FormationRepositoryInterface;
 use App\UI\Action\Interfaces\IndexActionInterface;
 use App\UI\Responder\Interfaces\IndexResponderInterface;
@@ -21,12 +22,21 @@ final class IndexAction implements IndexActionInterface
     private $formationRepo;
 
     /**
-     * IndexAction constructor.
-     * @param FormationRepositoryInterface $formationRepo
+     * @var CategoryRepositoryInterfaces
      */
-    public function __construct(FormationRepositoryInterface $formationRepo)
-    {
+    private $categoryRepo;
+
+    /**
+     * IndexAction constructor.
+     *
+     * @inheritDoc
+     */
+    public function __construct(
+        FormationRepositoryInterface $formationRepo,
+        CategoryRepositoryInterfaces $categoryRepo
+    ) {
         $this->formationRepo = $formationRepo;
+        $this->categoryRepo = $categoryRepo;
     }
 
 
@@ -37,12 +47,14 @@ final class IndexAction implements IndexActionInterface
     {
         $formations = $this->formationRepo->getAllInProgress();
 
+        $categories = $this->categoryRepo->getAll();
+
         $tabFormation = [];
 
         foreach ($formations as $formation) {
             $tabFormation[$formation->getArea()->getName()][] = $formation;
         }
 
-        return $responder->response($tabFormation);
+        return $responder->response($tabFormation, $categories);
     }
 }

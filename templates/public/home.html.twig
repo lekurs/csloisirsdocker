@@ -2,7 +2,6 @@
 
 {% block container %}
 <section>
-    <h1>test de la home</h1>
     <div class="wrapper-grid-container">
         <div  class="home-wrapper-grid">
             <div><img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" alt="test" class="img-fluid" /> </div>
@@ -29,7 +28,7 @@
 
         <div  class="section-wrapper-grid m-top-3">
             <div class="learn-build-container">
-                <h2 id="learn">APPRENDRE, CRÉER & S’AMUSER</h2>
+                <h2 id="learn">APPRENDRE, CRÉER & <br>S’AMUSER</h2>
                 <p>Apprenez le <strong>cartonnage, l’encadrement, la réalisation d’abat-jours et de meubles en carton </strong>
                     dans mon atelier à <strong>Anet (28260)</strong>. De nombreux objets sont réalisables durant ces ateliers dédiés au carton sous toutes ses formes : boîtes à couture, à tiroirs, rondes,
                     hexagonales, boîtes déco, coffrets à bijoux, carnets, album-photos, meubles, différents encadrements et diverses formes d’abat-jour….
@@ -39,22 +38,24 @@
         </div>
 
         <div class="section-wrapper-grid col-grid-4 m-top-3 gap-1  category-container">
+            {% for category in categories %}
             <div class="img-category">
                 <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
-                <span>blabla</span>
+                <span><a href="{{ path('showPubCat', {'category': category.category}) }}">{{ category.category }}</a></span>
             </div>
-            <div class="img-category">
-                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
-                <span>blabla</span>
-            </div>
-            <div class="img-category">
-                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
-                <span>blabla</span>
-            </div>
-            <div class="img-category">
-                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
-                <span>blabla</span>
-            </div>
+{#            <div class="img-category">#}
+{#                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />#}
+{#                <span><a href="{{ path('showPubCat', {'category': 'cartonnage'}) }}">Cartonnage</a></span>#}
+{#            </div>#}
+{#            <div class="img-category">#}
+{#                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />#}
+{#                <span><a href="#">Abat-jour</a></span>#}
+{#            </div>#}
+{#            <div class="img-category">#}
+{#                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />#}
+{#                <span><a href="#">Meuble</a></span>#}
+{#            </div>#}
+            {% endfor %}
         </div>
 
     </div>

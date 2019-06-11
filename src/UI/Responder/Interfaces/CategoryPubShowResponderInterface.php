@@ -4,22 +4,22 @@
 namespace App\UI\Responder\Interfaces;
 
 
+use App\Domain\Models\Category;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
-interface IndexResponderInterface
+interface CategoryPubShowResponderInterface
 {
     /**
-     * IndexResponderInterface constructor.
+     * CategoryPubShowResponderInterface constructor.
      *
      * @param Environment $twig
      */
     public function __construct(Environment $twig);
 
     /**
-     * @param array $formations
-     * @param array $categories
+     * @param Category $category
      * @return Response
      */
-    public function response(array $formations, array $categories): Response;
+    public function response(Category $category): Response;
 }

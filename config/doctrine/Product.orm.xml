@@ -6,6 +6,7 @@
     <entity name="App\Domain\Models\Product" repository-class="App\Domain\Repository\ProductRepository" table="csloisirs_product">
         <id name="id" type="uuid" column="id" />
         <field name="title" type="string" length="200" nullable="false" unique="true" />
+        <field name="description" type="text" nullable="false" />
         <field name="slug" type="string" length="255" nullable="false" unique="true" />
 
         <many-to-one field="category" target-entity="App\Domain\Models\Category" inversed-by="products" />

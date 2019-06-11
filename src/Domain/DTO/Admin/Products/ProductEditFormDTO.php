@@ -15,6 +15,11 @@ final class ProductEditFormDTO implements ProductEditFormDTOInterface
     public $title;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var Category
      */
     public $category;
@@ -27,13 +32,12 @@ final class ProductEditFormDTO implements ProductEditFormDTOInterface
     /**
      * ProductEditFormDTO constructor.
      *
-     * @param string $title
-     * @param Category $category
-     * @param string $slug
+     * @inheritDoc
      */
-    public function __construct(string $title, Category $category, string $slug)
+    public function __construct(string $title, string $description, Category $category, string $slug)
     {
         $this->title = $title;
+        $this->description = $description;
         $this->category = $category;
         $this->slug = $slug;
     }

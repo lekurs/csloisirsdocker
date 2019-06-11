@@ -21,6 +21,11 @@ class Product
     private $title;
 
     /**
+     * @var string
+     */
+    private $description;
+
+    /**
      * @var Category
      */
     private $category;
@@ -39,15 +44,17 @@ class Product
      * Product constructor.
      *
      * @param string $title
+     * @param string $descritption
      * @param Category $category
      * @param array $images
      * @param string $slug
      * @throws \Exception
      */
-    public function __construct(string $title, Category $category, array $images, string $slug)
+    public function __construct(string $title, string $descritption, Category $category, array $images, string $slug)
     {
         $this->id = Uuid::uuid4();
         $this->title = $title;
+        $this->description = $descritption;
         $this->category = $category;
         $this->images = new ArrayCollection($images ?? []);
         $this->slug = $slug;
@@ -94,11 +101,20 @@ class Product
     }
 
     /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
      * @param ProductEditFormDTO $DTO
      */
     public function edit(ProductEditFormDTO $DTO)
     {
         $this->title = $DTO->title;
+        $this->description = $DTO->description;
         $this->category = $DTO->category;
         $this->slug = $DTO->slug;
     }

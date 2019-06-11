@@ -4,11 +4,24 @@
 namespace App\UI\Action\Interfaces;
 
 
+use App\Domain\Repository\Interfaces\CategoryRepositoryInterfaces;
+use App\Domain\Repository\Interfaces\FormationRepositoryInterface;
 use App\UI\Responder\Interfaces\IndexResponderInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 interface IndexActionInterface
 {
+    /**
+     * IndexActionInterface constructor.
+     *
+     * @param FormationRepositoryInterface $formationRepo
+     * @param CategoryRepositoryInterfaces $categoryRepo
+     */
+    public function __construct(
+        FormationRepositoryInterface $formationRepo,
+        CategoryRepositoryInterfaces $categoryRepo
+    );
+
     /**
      * @param IndexResponderInterface $responder
      * @return Response

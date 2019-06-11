@@ -15,6 +15,11 @@ final class ProductCreationFormDTO implements ProductCreationFormDTOInterface
     public $title;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var Category
      */
     public $category;
@@ -28,15 +33,18 @@ final class ProductCreationFormDTO implements ProductCreationFormDTOInterface
      * ProductCreationFormDTO constructor.
      *
      * @param string $title
+     * @param string $description
      * @param Category $category
+     * @param array $images
      */
     public function __construct(
         string $title,
+        string $description,
         Category $category,
         array $images = []
-    )
-    {
+    ){
         $this->title = $title;
+        $this->description = $description;
         $this->category = $category;
         $this->images = $images;
     }

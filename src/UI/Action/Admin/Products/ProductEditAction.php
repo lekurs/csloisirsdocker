@@ -59,6 +59,7 @@ final class ProductEditAction implements ProductEditActionInterface
 
         $productUpdate = new ProductEditFormDTO(
             $product->getTitle(),
+            $product->getDescription(),
             $product->getCategory(),
             $product->getSlug()
         );

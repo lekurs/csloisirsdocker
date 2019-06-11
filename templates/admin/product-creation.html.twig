@@ -15,6 +15,10 @@
                 {{ form_label(form.title) }}
             </div>
             <div class="floating-label" style="margin: 2em 0">
+                {{ form_widget(form.description) }}
+                {{ form_label(form.description) }}
+            </div>
+            <div class="floating-label" style="margin: 2em 0">
                 {{ form_widget(form.category) }}
             </div>
             <ul id="contact-fields-list"

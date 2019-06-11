@@ -36,6 +36,15 @@ class CategoryRepository extends ServiceEntityRepository implements CategoryRepo
                                 ->getOneOrNullResult();
     }
 
+    public function getOneBySlug($slug): Category
+    {
+        return $this->createQueryBuilder('category')
+            ->where('category.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     public function save(Category $category): void
     {
         $this->_em->persist($category);

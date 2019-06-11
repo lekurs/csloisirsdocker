@@ -41,6 +41,12 @@ final class ProductEditForm extends AbstractType
                 'label' => 'Nom du produit *',
                 'required' => true,
             ])
+            ->add('description', TextType::class, [
+                'label_attr' => ['class' => 'float'],
+                'attr' => ['class' => 'floating-input', 'placeholder' => ' '],
+                'label' => 'Description du produit *',
+                'required' => true,
+            ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'category',
@@ -55,6 +61,7 @@ final class ProductEditForm extends AbstractType
             'empty_data' => function (FormInterface $form) {
                 return new ProductEditFormDTO(
                     $form->getData()->title,
+                    $form->getData()->description,
                     $form->getData()->category,
                     $form->getData()->slug
                 );
