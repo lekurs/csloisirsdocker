@@ -1,0 +1,26 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block container %}
+<section>
+    <div class="wrapper-grid-container m-top-3">
+        <div class="wrapper-header">
+            <h1>Stages</h1>
+        </div>
+        <div class="formations-content">
+            {% for formation in formations%}
+                <div class="formation-details-container">
+                    <div class="img-formation{%  if loop.index is divisible by (2) %} divisible {% endif %}">
+                        <img src="{{ asset('assets/images/') ~ formation.area.name|lower ~ '.jpg' }}" class="img-fluid">
+                    </div>
+                    <div class="formation-details{%  if loop.index is divisible by (2) %} divisible {% endif %}">
+                        <h2>{{ formation.title }}</h2>
+                        <p>{{ formation.description }}</p>
+                        <p>formation.price</p>
+                        <p>formation.available_seats</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

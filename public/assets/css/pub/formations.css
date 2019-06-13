@@ -1,0 +1,59 @@
+/** FORMATIONS **/
+.wrapper-header H1 {
+    text-align: center;
+    font-family: Assistant;
+    font-weight: 600;
+    height: 145px;
+    background-color: #24C49F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.formations-content {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 3em;
+}
+
+.formation-details-container {
+    display: flex;
+    border-bottom: 1px solid #24C49F;
+    padding: 3em 0;
+}
+
+.img-formation {
+    width: 50%;
+}
+
+
+.img-formation.divisible {
+    order: 2;
+    width: 50%;
+}
+
+
+.formation-details {
+    padding: 0 2em;
+    width: 50%;
+}
+
+
+.formation-details.divisible {
+    width: 50%;
+}
+
+/** MOBILE **/
+@media (max-width: 1024px) {
+    .formation-details-container {
+        display: flex;
+        height: 400px;
+        min-height: 300px;
+        max-height: 500px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/** /FORMATIONS **/

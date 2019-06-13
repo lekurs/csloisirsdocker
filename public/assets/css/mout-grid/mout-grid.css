@@ -8,6 +8,10 @@
 
 /** GRID GRILLE **/
 
+.grid-container {
+    display: grid;
+}
+
 .section-wrapper-grid {
     display: grid;
 }

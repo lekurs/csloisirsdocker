@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class CategoryPubShowAction
- * @Route(name="showPubCat", path="/{category}")
+ * @Route(name="showPubCat", path="/cat/{category}")
  */
 final class CategoryPubShowAction implements CategoryPubShowActionInterface
 {

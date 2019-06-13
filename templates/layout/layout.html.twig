@@ -10,6 +10,7 @@
         <link href="{{ asset('/assets/vendors/bootstrap.css') }}"  rel="stylesheet">
         <link href="{{ asset('/assets/css/pub/style.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/pub/products.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/assets/css/pub/formations.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/mout-grid/mout-grid.css') }}" rel="stylesheet" />
     {% endblock %}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -48,29 +49,32 @@
 
 {% block body %}
 {% block navigation %}
+    {% set route = app.request.get('_route') %}
+    {% set pathInfo = app.request.pathInfo %}
+
 <header>
     <nav class="desktop-nav">
         <ul class="nav">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Réalisations</a>
+                <a class="nav-link dropdown-toggle {% if pathInfo starts with '/cat' %}active{% endif %}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Réalisations</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item">Encadrements</a>
-                    <a class="dropdown-item">Cartonnage</a>
-                    <a class="dropdown-item">Abat-jour</a>
-                    <a class="dropdown-item">Meuble</a>
+                    <a class="dropdown-item {% if pathInfo starts with '/cat/encadrement' %}active{% endif %}" href="{{ path('showPubCat', {'category': 'encadrement'}) }}">Encadrements</a>
+                    <a class="dropdown-item {% if pathInfo starts with '/cat/cartonnage' %}active{% endif %}">Cartonnage</a>
+                    <a class="dropdown-item {% if pathInfo starts with '/cat/abat-jour' %}active{% endif %}">Abat-jour</a>
+                    <a class="dropdown-item {% if pathInfo starts with '/cat/meuble' %}active{% endif %}">Meuble</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Stages</a>
+                <a href="{{ path('formationsPubShow') }}" class="nav-link {% if pathInfo starts with '/stages' %}active{% endif %}">Stages</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link"><img src="{{ asset('assets/images/logo.png') }}" alt="Logo CSLoisirs" class="img-fluid" id="logo"/></a>
+                <a href="{{ path('index') }}" class="nav-link"><img src="{{ asset('assets/images/logo.png') }}" alt="Logo CSLoisirs" class="img-fluid" id="logo"/></a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Tarifs</a>
+                <a href="#" class="nav-link {% if pathInfo starts with '/tarifs' %}active{% endif %}">Tarifs</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Infos</a>
+                <a href="#" class="nav-link {% if pathInfo starts with '/infos' %}active{% endif %}">Infos</a>
             </li>
         </ul>
     </nav>
@@ -95,8 +99,9 @@
         <main>
             <div class="container-fluid">
                 <div class="row no-gutters">
-                    <div class="col-12">
+                    <div class="col-12 header-container">
                         <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" alt="Boîte carton CSLoisirsCréatifs" class="img-fluid img-background" />
+                        <i class="fas fa-chevron-down fa-2x scroll-down-header"></i>
                     </div>
                 </div>
             </div>

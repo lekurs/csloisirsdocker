@@ -6,7 +6,9 @@
         <div  class="home-wrapper-grid">
             <div><img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" alt="test" class="img-fluid" /> </div>
             <div class="formations-container">
-                <h2 id="stage-title">Stages</h2>
+                <h2 id="stage-title">Stages
+                    <i class="fas fa-chevron-down formation-button-down"></i>
+                </h2>
                 {% for key, area in formations %}
                     <div class="formation-content">
                         <h3 class="area-title">{{ key }}</h3>
