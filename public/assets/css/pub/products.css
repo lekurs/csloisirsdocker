@@ -94,9 +94,14 @@ H2.product-title {
     text-align: center;
 }
 
+.product-details-container {
+    padding: 0 1em;
+}
+
 .product-grid-img-container img.main-image {
     height: 100%;
     object-fit: cover;
+    width: 100%;
 }
 
 .small-img-container {
@@ -104,5 +109,5 @@ H2.product-title {
 }
 
 img.slide-img {
-    width: 90%;
+    padding: 1em;
 }
