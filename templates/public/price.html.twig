@@ -1,0 +1,40 @@
+{% extends 'layout/layout.html.twig' %}
+{% block description %}
+    CSLoisirsCréatifs conception de meubles en carton. Voici les dates des stages disponibles pour cette année. Tout les niveaux sont acceptés.
+{% endblock %}
+
+{% block title %}
+    CSLoisirsCréatifs - Stages
+{% endblock %}
+
+{% block container %}
+<section>
+    <div class="wrapper-grid-container m-top-3">
+        <div class="wrapper-header">
+            <h1>Prix des Stages</h1>
+        </div>
+        <div class="grid-container formations-content">
+            <div>
+                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="CSLoisirsCréatifs - Les stages" />
+            </div>
+            <div class="prices-details">
+                <h2>Blabla</h2>
+                <p>qhdjkqhfkhkqhdkf</p>
+            </div>
+        </div>
+        <div class="wrapper-header">
+            <h1 id="cours-prices">Prix des Cours</h1>
+        </div>
+        <div class="grid-container formations-content">
+            <div>
+                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="CSLoisirsCréatifs - Les prix" />
+            </div>
+            <div class="prices-details">
+                <h2>Blabla</h2>
+                <p>qhdjkqhfkhkqhdkf</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

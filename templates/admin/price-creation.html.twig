@@ -1,21 +1,27 @@
 {% extends '/layout/admin-layout.html.twig' %}
 
 {% block title %}
-Ajout d'une catégorie de produits
+    Ajout des nouveaux prix
 {% endblock %}
 
 {% block container %}
     <section>
         <div class="wrapper-grid-container">
-            <h1>Ajout d'une catégorie de produits</h1>
+            <h1>Ajout d'un nouveau prix</h1>
             <div class="form-container">
                 {{ form_start(form) }}
                 <div class="floating-label" style="margin: 2em 0">
                     {{ form_widget(form.title) }}
                     {{ form_label(form.title) }}
-                    <button type="submit" class="btn btn-mout mt-2">Ajouter</button>
-                    {{ form_end(form) }}
                 </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.price) }}
+                    {{ form_label(form.price) }}
+                </div>
+                <div >
+                    <button type="submit" class="btn btn-mout mt-2">Ajouter</button>
+                </div>
+                {{ form_end(form) }}
             </div>
         </div>
     </section>

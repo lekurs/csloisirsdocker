@@ -5,14 +5,13 @@ namespace App\Domain\Factory\Interfaces;
 
 
 use App\Domain\Models\Price;
-use App\Domain\Models\Subscription;
 
 interface PriceFactoryInterface
 {
     /**
      * @param int $price
-     * @param Subscription $subscription
+     * @param string $title
      * @return Price
      */
-    public function create(int $price, Subscription $subscription): Price;
+    public function create(int $price, string $title): Price;
 }

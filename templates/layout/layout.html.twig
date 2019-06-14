@@ -11,6 +11,7 @@
         <link href="{{ asset('/assets/css/pub/style.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/pub/products.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/pub/formations.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/assets/css/pub/price.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/mout-grid/mout-grid.css') }}" rel="stylesheet" />
     {% endblock %}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -38,6 +39,12 @@
         <meta name="twitter:tittle" content="Mout Web Agency" />
         <meta name="twitter:description" content="Mout Web Agency" />
     {% endblock %}
+    <meta name="description" content="
+    {% block description %}
+        CSloisirsCréatifs - Réalisation de meubles en carton, abat-jour, encadrements. Des stages pour tout niveau, du débutant au confirmé de cet
+            art.
+    {% endblock %}
+        " />
     <title>
         {% block title %}
             CSLoisirs
@@ -71,7 +78,7 @@
                 <a href="{{ path('index') }}" class="nav-link"><img src="{{ asset('assets/images/logo.png') }}" alt="Logo CSLoisirs" class="img-fluid" id="logo"/></a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link {% if pathInfo starts with '/tarifs' %}active{% endif %}">Tarifs</a>
+                <a href="{{ path('showPricesAndFormations') }}" class="nav-link {% if pathInfo starts with '/prix-formations' %}active{% endif %}">Tarifs</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link {% if pathInfo starts with '/infos' %}active{% endif %}">Infos</a>

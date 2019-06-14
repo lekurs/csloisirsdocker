@@ -7,12 +7,12 @@
         <id name="id" type="uuid" column="id" />
         <field name="title" type="string" length="150" nullable="false" unique="true" />
 
-        <one-to-many field="prices" target-entity="App\Domain\Models\Price" mapped-by="subscription">
-            <cascade>
-                <cascade-persist />
-                <cascade-remove />
-            </cascade>
-        </one-to-many>
+<!--        <one-to-many field="prices" target-entity="App\Domain\Models\Price" mapped-by="subscription">-->
+<!--            <cascade>-->
+<!--                <cascade-persist />-->
+<!--                <cascade-remove />-->
+<!--            </cascade>-->
+<!--        </one-to-many>-->
     </entity>
 
 </doctrine-mapping>

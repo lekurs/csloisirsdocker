@@ -8,35 +8,26 @@ use Ramsey\Uuid\Uuid;
 
 class Price
 {
-    /**
-     * @var Uuid
-     */
     private $id;
 
-    /**
-     * @var int
-     */
     private $price;
 
-    /**
-     * @var Subscription
-     */
-    private $subscription;
+    private $title;
 
     /**
      * Price constructor.
      *
      * @param int $price
-     * @param Subscription $subscription
+     * @param string $title
      * @throws \Exception
      */
     public function __construct(
         int $price,
-        Subscription $subscription
+        string $title
     ) {
         $this->id = Uuid::uuid4();
         $this->price = $price;
-        $this->subscription = $subscription;
+        $this->title = $title;
     }
 
     /**
@@ -56,10 +47,10 @@ class Price
     }
 
     /**
-     * @return Subscription
+     * @return string
      */
-    public function getSubscription(): Subscription
+    public function getTitle(): string
     {
-        return $this->subscription;
+        return $this->title;
     }
 }
