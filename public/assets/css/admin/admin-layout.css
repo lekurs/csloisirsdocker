@@ -3,6 +3,10 @@
     display: grid;
 }
 
+#logo-admin {
+    width: 70%;
+}
+
 label.float {
     color: #ffec00 !important;
 }

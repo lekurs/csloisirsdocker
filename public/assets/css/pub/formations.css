@@ -44,6 +44,10 @@
     width: 50%;
 }
 
+.adress-formation {
+    margin: 0;
+}
+
 /** MOBILE **/
 @media (max-width: 1024px) {
     .formation-details-container {
