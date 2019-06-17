@@ -5,7 +5,7 @@
                           http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 <entity name="App\Domain\Models\User" repository-class="App\Domain\Repository\UserRepository" table="csloisirs_user">
     <id name="id" type="uuid" column="id" />
-    <field name="login" type="string" length="150" unique="true" nullable="false" />
+    <field name="username" type="string" length="150" unique="true" nullable="false" />
     <field name="password" type="string" length="150" nullable="false" unique="true" />
     <field name="email" type="string" length="255" nullable="false" unique="true" />
     <field name="roles" type="array" nullable="false" unique="false" />

@@ -1,0 +1,46 @@
+{% extends 'layout/layout.html.twig' %}
+{% block description %}
+    CSLoisirsCréatifs conception de meubles en carton. Voici les dates des stages disponibles pour cette année. Tout les niveaux sont acceptés.
+{% endblock %}
+
+{% block title %}
+    CSLoisirsCréatifs - Stages
+{% endblock %}
+
+{% block container %}
+<section>
+    <div class="wrapper-grid-container m-top-3">
+        {{ form_start(form) }}
+        <div class="floating-label" style="margin: 2em 0">
+            {{ form_widget(form.name) }}
+            {{ form_label(form.name) }}
+        </div>
+        <div class="floating-label" style="margin: 2em 0">
+            {{ form_widget(form.lastName) }}
+            {{ form_label(form.lastName) }}
+        </div>
+        <div class="floating-label" style="margin: 2em 0">
+            {{ form_widget(form.email) }}
+            {{ form_label(form.email) }}
+        </div>
+        <div class="floating-label" style="margin: 2em 0">
+            {{ form_widget(form.phone) }}
+            {{ form_label(form.phone) }}
+        </div>
+        <div class="floating-label" style="margin: 2em 0">
+            {{ form_widget(form.message) }}
+            {{ form_label(form.message) }}
+        </div>
+        {% form_theme form 'bootstrap/custom-checkbox-theme.html.twig' %}
+        {% block checkbox_widget %}
+        <div>
+
+        </div>
+        {% endblock %}
+        <div>
+            <button type="submit" class="btn btn-mout">Envoyer</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</section>
+{% endblock %}

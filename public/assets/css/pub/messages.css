@@ -1,0 +1,29 @@
+label.float {
+    color: #000;
+}
+
+.floating-input:focus , .floating-select:focus {
+    outline:none;
+    border-bottom:2px solid #24C49F;
+    background: transparent;
+}
+
+.floating-input:focus ~ label.float, .floating-input:not(:placeholder-shown) ~ label.float,  .floating-textarea:not(:placeholder-shown) ~ label.float{
+    top:-18px;
+    font-size:14px;
+    color:#24C49F;
+}
+
+.floating-select:focus ~ label.float , .floating-select:not([value=""]):valid ~ label.float {
+    top:-18px;
+    font-size:14px;
+    color:#24C49F;
+}
+
+.btn-mout {
+    color: #000;
+    background: #24C49F;
+    border: 1px solid #24C49F;
+    text-transform: uppercase;
+    font-family: "AristaProAlternateFat";
+}

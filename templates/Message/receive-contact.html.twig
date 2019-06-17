@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        table {
+            /*background: #1c7430;*/
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        body {
+            background: #000000;
+        }
+
+        table td {
+            color: #ffec00;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tbody>
+    <tr>
+        <td>Bonjour,</td>
+    </tr>
+    <tr>
+        <td>Vous avez reçu une demande de renseignements.</td>
+    </tr>
+    <tr>
+        <td>Nom de la société : </td>
+        <td>{{ informations.firmName }}</td>
+    </tr>
+    <tr>
+        <td>Nom du contact : </td>
+        <td>{{ informations.name }}</td>
+    </tr>
+    <tr>
+        <td>Prénom du contact : </td>
+        <td>{{ informations.lastname }}</td>
+    </tr>
+    <tr>
+        <td>Téléphone du contact : </td>
+        <td>{{ informations.phone }}</td>
+    </tr>
+    <tr>
+        <td>Mail du contact : </td>
+        <td>{{ informations.email }}</td>
+    </tr>
+    <tr>
+        <td>Message : </td>
+        <td>{{ informations.message | nl2br }}</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

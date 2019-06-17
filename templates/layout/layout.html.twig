@@ -13,6 +13,8 @@
         <link href="{{ asset('/assets/css/pub/formations.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/pub/price.css') }}" rel="stylesheet" />
         <link href="{{ asset('/assets/css/mout-grid/mout-grid.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/assets/css/global/floating-label.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/css/pub/messages.css') }}" rel="stylesheet" />
     {% endblock %}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -80,7 +82,7 @@
                 <a href="{{ path('showPricesAndFormations') }}" class="nav-link {% if pathInfo starts with '/prix-formations' %}active{% endif %}">Tarifs</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link {% if pathInfo starts with '/infos' %}active{% endif %}">Infos</a>
+                <a href="{{ path('receiveContact') }}" class="nav-link {% if pathInfo starts with '/contact' %}active{% endif %}">Contact</a>
             </li>
         </ul>
     </nav>
@@ -102,7 +104,7 @@
                 {% endfor %}
                 <li class="nav-mobile-list"><a href="{{ path('formationsPubShow') }}">Stages</a></li>
                 <li class="nav-mobile-list"><a href="{{ path('showPricesAndFormations') }}">Tarifs</a></li>
-                <li class="nav-mobile-list"><a href="{{ path('showPricesAndFormations') }}">Contact</a></li>
+                <li class="nav-mobile-list"><a href="{{ path('receiveContact') }}">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -130,7 +132,7 @@
         <footer>
             <div class="container-fluid">
                 <p>© Cs Loisirs Creatifs - 535049498/00012</p>
-                <p>3 rue du Champ Hochet 28260 ANET - <a href="#" type="tel">06 08 98 06 84</a> - <a href="#">cathysonnet@wanadoo.fr</a></p>
+                <p>3 rue du Champ Hochet 28260 ANET - <a href="tel: +3368980684">06 08 98 06 84</a> - <a href="mailto:cathysonnet@wanadoo.fr">cathysonnet@wanadoo.fr</a></p>
             </div>
         </footer>
     {% endblock %}

@@ -276,6 +276,12 @@ nav#mobile-nav {
     }
 }
 
+@media all and (min-width: 1024px) and (max-width: 1200px) {
+    .nav-link {
+        padding: .5rem 3rem !important;
+    }
+}
+
 /** /NAV **/
 
 /** HOME **/
@@ -430,5 +436,14 @@ footer {
     align-items: center;
     text-align: center;
     color: #fff;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+footer a:hover {
+    color: #E8327D;
+    text-decoration: none;
 }
 /** /FOOTER **/

@@ -17,7 +17,7 @@ class User implements UserInterface
     /**
      * @var string
      */
-    private $login;
+    private $username;
 
     /**
      * @var string
@@ -42,7 +42,7 @@ class User implements UserInterface
     /**
      * User constructor.
      *
-     * @param string $login
+     * @param string $username
      * @param string $password
      * @param callable $encoder
      * @param string $roles
@@ -51,7 +51,7 @@ class User implements UserInterface
      * @throws \Exception
      */
     public function __construct(
-        string $login,
+        string $username,
         string $password,
         callable $encoder,
         string $roles,
@@ -59,7 +59,7 @@ class User implements UserInterface
         string $slug
     ) {
         $this->id = Uuid::uuid4();
-        $this->login = $login;
+        $this->username = $username;
         $this->password = $password;
         $this->password = $encoder($password, null);
         $this->roles[] = $roles;
@@ -78,9 +78,9 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getLogin(): string
+    public function getUsername(): string
     {
-        return $this->login;
+        return $this->username;
     }
 
     /**
@@ -94,7 +94,7 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getRoles(): string
+    public function getRoles(): array
     {
         return $this->roles;
     }
@@ -118,11 +118,6 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
-    }
-
-    public function getUsername()
-    {
-        // TODO: Implement getUsername() method.
     }
 
     public function getSalt()

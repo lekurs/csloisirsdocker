@@ -57,7 +57,7 @@ label.float {
     -webkit-transition:0.2s ease all;
 }
 
-.floating-input:focus ~ label.float, .floating-input:not(:placeholder-shown) ~ label.float {
+.floating-input:focus ~ label.float, .floating-input:not(:placeholder-shown) ~ label.float,  .floating-textarea:not(:placeholder-shown) ~ label.float{
     top:-18px;
     font-size:14px;
     color:#ffec00;
@@ -70,7 +70,7 @@ label.float {
 }
 
 /* active state */
-.floating-input:focus ~ .bar:before, .floating-input:focus ~ .bar:after, .floating-select:focus ~ .bar:before, .floating-select:focus ~ .bar:after {
+.floating-input:focus ~ .bar:before, .floating-input:focus ~ .bar:after, .floating-select:focus ~ .bar:before, .floating-select:focus ~ .bar:after, .floating-textarea:focus ~ .bar:after {
     width:50%;
 }
 
