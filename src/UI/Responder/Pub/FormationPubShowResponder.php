@@ -28,10 +28,11 @@ final class FormationPubShowResponder implements FormationPubShowResponderInterf
     /**
      * @inheritDoc
      */
-    public function response(array $formations): Response
+    public function response(array $formations, array $navigations): Response
     {
         return new Response($this->twig->render('public/formations.html.twig', [
             'formations' => $formations,
+            'navigations' => $navigations
         ]));
     }
 }

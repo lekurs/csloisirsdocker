@@ -6,6 +6,7 @@ namespace App\UI\Action\Interfaces;
 
 use App\Domain\Repository\Interfaces\CategoryRepositoryInterfaces;
 use App\Domain\Repository\Interfaces\FormationRepositoryInterface;
+use App\Services\Interfaces\NavigationHelperInterface;
 use App\UI\Responder\Interfaces\IndexResponderInterface;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,10 +17,12 @@ interface IndexActionInterface
      *
      * @param FormationRepositoryInterface $formationRepo
      * @param CategoryRepositoryInterfaces $categoryRepo
+     * @param NavigationHelperInterface $navHelper
      */
     public function __construct(
         FormationRepositoryInterface $formationRepo,
-        CategoryRepositoryInterfaces $categoryRepo
+        CategoryRepositoryInterfaces $categoryRepo,
+        NavigationHelperInterface $navHelper
     );
 
     /**

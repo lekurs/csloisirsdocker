@@ -19,7 +19,8 @@ interface IndexResponderInterface
     /**
      * @param array $formations
      * @param array $categories
+     * @param array $nav
      * @return Response
      */
-    public function response(array $formations, array $categories): Response;
+    public function response(array $formations, array $categories, array $nav): Response;
 }

@@ -29,10 +29,11 @@ final class CategoryPubShowResponder implements CategoryPubShowResponderInterfac
     /**
      * @inheritDoc
      */
-    public function response(Category $category): Response
+    public function response(Category $category, array $navigations): Response
     {
         return new Response($this->twig->render('public/products-category.html.twig', [
             'category' => $category,
+            'navigations' => $navigations
         ]));
     }
 }

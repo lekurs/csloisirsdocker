@@ -65,10 +65,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle {% if pathInfo starts with '/cat' %}active{% endif %}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Réalisations</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item {% if pathInfo starts with '/cat/encadrement' %}active{% endif %}" href="{{ path('showPubCat', {'category': 'encadrement'}) }}">Encadrements</a>
-                    <a class="dropdown-item {% if pathInfo starts with '/cat/cartonnage' %}active{% endif %}">Cartonnage</a>
-                    <a class="dropdown-item {% if pathInfo starts with '/cat/abat-jour' %}active{% endif %}">Abat-jour</a>
-                    <a class="dropdown-item {% if pathInfo starts with '/cat/meuble' %}active{% endif %}">Meuble</a>
+                    {% for nav in navigations %}
+                        <a class="dropdown-item {% if pathInfo starts with '/cat/' ~nav.slug %}active{% endif %}" href="{{ path('showPubCat', {'category': nav.slug}) }}">{{ nav.category }}</a>
+                    {% endfor %}
                 </div>
             </li>
             <li class="nav-item">
@@ -85,21 +84,29 @@
             </li>
         </ul>
     </nav>
+
+    <nav id="mobile-nav">
+        <div class="burger">
+            <span class="burger-line" id="top-line"></span>
+            <span class="burger-line" id="middle-line"></span>
+            <span class="burger-line" id="bot-line"></span>
+        </div>
+        <div class="nav-mobile-content">
+            <div class="logo-nav-mobile">
+                <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="Logo CSLoisirsCréatifs" />
+            </div>
+            <ul class="nav-mobile-list-container">
+                <li class="nav-mobile-list">Réalisations</li>
+                {% for nav in navigations %}
+                    <li class="nav-mobile-list nav-mobile-submenu-list"><a href="{{ path('showPubCat', {'category': nav.slug}) }}" class="nav-mobile-submenu">{{ nav.category }}</a></li>
+                {% endfor %}
+                <li class="nav-mobile-list"><a href="{{ path('formationsPubShow') }}">Stages</a></li>
+                <li class="nav-mobile-list"><a href="{{ path('showPricesAndFormations') }}">Tarifs</a></li>
+                <li class="nav-mobile-list"><a href="{{ path('showPricesAndFormations') }}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
-{#    <nav id="mobile-nav">#}
-{#        <div class="social-media-icon-container d-flex align-items-end">#}
-{#            <i class="fab fa-twitter"></i>#}
-{#            <i class="fab fa-instagram"></i>#}
-{#            <i class="fa fa-facebook"></i>#}
-{#        </div>#}
-{#        <div class="burger-mobile-nav-container d-flex align-items-center">#}
-{#            <div class="burger-mobile">#}
-{#                <span class="mobile-line-1"></span>#}
-{#                <span class="mobile-line-2"></span>#}
-{#                <span class="mobile-line-3"></span>#}
-{#            </div>#}
-{#        </div>#}
-{#    </nav>#}
 
 {% endblock %}
 
@@ -134,6 +141,8 @@
     <script src="{{ asset('/assets/vendors/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('/assets/vendors/bootstrap.js') }}"></script>
     <script src="{{ asset('/assets/vendors/popper.min.js') }}"></script>
+    <script src="{{ asset('/assets/js/global/sticky-nav.js') }}"></script>
+    <script src="{{ asset('/assets/js/global/mobile-nav.js') }}"></script>
 {% endblock %}
 </body>
 {% endblock %}

@@ -52,11 +52,23 @@
 @media (max-width: 1024px) {
     .formation-details-container {
         display: flex;
-        height: 400px;
-        min-height: 300px;
-        max-height: 500px;
+        height: auto !important;
         flex-direction: column;
         align-items: center;
+    }
+
+    .img-formation,
+    .formation-details,
+    .img-formation.divisible,
+    .formation-details.divisible {
+        width: 100%;
+        order: inherit;
+    }
+}
+
+@media (max-width: 1024px) {
+    .formations-content {
+        grid-template-columns: inherit;
     }
 }
 

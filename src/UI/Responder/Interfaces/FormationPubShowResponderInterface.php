@@ -18,7 +18,8 @@ interface FormationPubShowResponderInterface
 
     /**
      * @param array $formations
+     * @param array $navigations
      * @return Response
      */
-    public function response(array $formations): Response;
+    public function response(array $formations, array $navigations): Response;
 }

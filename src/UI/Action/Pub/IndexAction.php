@@ -5,6 +5,7 @@ namespace App\UI\Action\Pub;
 
 use App\Domain\Repository\Interfaces\CategoryRepositoryInterfaces;
 use App\Domain\Repository\Interfaces\FormationRepositoryInterface;
+use App\Services\Interfaces\NavigationHelperInterface;
 use App\UI\Action\Interfaces\IndexActionInterface;
 use App\UI\Responder\Interfaces\IndexResponderInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,17 +27,24 @@ final class IndexAction implements IndexActionInterface
      */
     private $categoryRepo;
 
+    private $navHelper;
+
     /**
      * IndexAction constructor.
      *
      * @inheritDoc
+     * @param FormationRepositoryInterface $formationRepo
+     * @param CategoryRepositoryInterfaces $categoryRepo
+     * @param $navHelper
      */
     public function __construct(
         FormationRepositoryInterface $formationRepo,
-        CategoryRepositoryInterfaces $categoryRepo
+        CategoryRepositoryInterfaces $categoryRepo,
+        NavigationHelperInterface $navHelper
     ) {
         $this->formationRepo = $formationRepo;
         $this->categoryRepo = $categoryRepo;
+        $this->navHelper = $navHelper;
     }
 
 
@@ -49,12 +57,14 @@ final class IndexAction implements IndexActionInterface
 
         $categories = $this->categoryRepo->getAll();
 
+        $nav = $this->navHelper->showNav();
+
         $tabFormation = [];
 
         foreach ($formations as $formation) {
             $tabFormation[$formation->getArea()->getName()][] = $formation;
         }
 
-        return $responder->response($tabFormation, $categories);
+        return $responder->response($tabFormation, $categories, $nav);
     }
 }

@@ -28,11 +28,12 @@ final class IndexResponder implements IndexResponderInterface
     /**
      * @inheritDoc
      */
-    public function response(array $formations, array $categories): Response
+    public function response(array $formations, array $categories, array $nav): Response
     {
         return new Response($this->twig->render('public/home.html.twig', [
             'formations' => $formations,
-            'categories' => $categories
+            'categories' => $categories,
+            'navigations' => $nav
         ]));
     }
 }

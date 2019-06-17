@@ -110,6 +110,171 @@ img#logo {
     text-align: center;
 }
 
+nav.desktop-nav.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 9999;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+nav#mobile-nav {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .header-container {
+        height: 100vh;
+    }
+
+    nav.desktop-nav {
+        display: none;
+    }
+
+    nav#mobile-nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 50px;
+        z-index: 9999;
+        position: fixed;
+        width: 100%;
+        /*background-color: #ffffff;*/
+    }
+
+    .nav-mobile-content {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #ffffff;
+        color: #000000;
+        z-index: 99999;
+        transition: all .5s ease-in-out;
+    }
+
+    .nav-mobile-content.show {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-nav-mobile {
+        width: 30%;
+    }
+
+    .nav-mobile-list-container li {
+        font-family: Assistant;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        margin: 1em auto;
+    }
+
+    .nav-mobile-list-container li a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    .nav-mobile-list-container li:first-of-type {
+        margin-bottom: 0 !important;
+    }
+
+    .nav-mobile-submenu-list {
+        margin: 0 !important;
+    }
+
+    a.nav-mobile-submenu {
+        color: #000000;
+        text-decoration: none;
+        font-size: .7em;
+        text-transform: none;
+        font-weight: 400;
+    }
+
+    ul.nav-mobile-list-container {
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .burger {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        background: #24C49F;
+        margin-right: 1.5em;
+        z-index: 999999;
+    }
+
+    .burger-line {
+        width: 70%;
+        height: 2px;
+        background: #ffffff;
+        position: absolute;
+        left: 4px;
+        transition: all .5s ease-in-out;
+    }
+
+    .burger-line#top-line {
+        top: 8px;
+    }
+
+    .burger-line#middle-line {
+        top: 15px;
+    }
+
+    .burger-line#bot-line {
+        bottom: 6px;
+    }
+
+    .burger.active .burger-line#top-line {
+        transform: rotate(405deg);
+        top: 15px;
+    }
+
+    .burger.active .burger-line#middle-line {
+        display: none;
+    }
+
+    .burger.active .burger-line#bot-line {
+        transform: rotate(-405deg);
+        top: 15px;
+    }
+
+    .home-wrapper-grid,
+    .section-wrapper-grid {
+        grid-template-columns: auto !important;
+    }
+
+    .formations-container {
+        height: 500px;
+    }
+
+    .category-container {
+        grid-template-rows: auto !important;
+    }
+
+    .category-container div.img-category {
+        height: 380px !important;
+    }
+}
+
+@media all and (orientation: landscape) {
+    .nav-mobile-content.show {
+        overflow: auto;
+    }
+}
 
 /** /NAV **/
 
@@ -190,19 +355,19 @@ h2#stage-title::after, H2#learn::after {
     justify-content: space-around;
 }
 
-.category-container div.img-category:nth-of-type(1) {
+.category-container a:nth-of-type(1)  div.img-category {
     background-color: #F39851;
 }
 
-.category-container div.img-category:nth-of-type(2) {
+.category-container a:nth-of-type(2)  div.img-category{
     background-color: #24C49F;
 }
 
-.category-container div.img-category:nth-of-type(3) {
+.category-container a:nth-of-type(3) div.img-category {
     background-color: #E8327D;
 }
 
-.category-container div.img-category:nth-of-type(4) {
+.category-container a:nth-of-type(4) div.img-category {
     background-color: #0FB6CC;
 }
 

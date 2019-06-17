@@ -19,7 +19,8 @@ interface CategoryPubShowResponderInterface
 
     /**
      * @param Category $category
+     * @param array $navigations
      * @return Response
      */
-    public function response(Category $category): Response;
+    public function response(Category $category, array $navigations): Response;
 }

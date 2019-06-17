@@ -8,3 +8,24 @@
 .wrapper-header H1#cours-prices {
     background-color: #F39851;
 }
+
+.price-formation-colorized {
+    color: #24C49F;
+    font-weight: 700;
+}
+
+.price-cours-colorized {
+    color: #F39851;
+    font-weight: 700;
+}
+
+.price-details-bolder {
+    font-weight: 700;
+}
+
+H2.price {
+    font-size: 1.2em;
+    text-transform: inherit;
+    margin-bottom: 1.5em;
+}
+

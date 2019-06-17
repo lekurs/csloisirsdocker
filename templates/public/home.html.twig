@@ -49,22 +49,12 @@
 
         <div class="section-wrapper-grid col-grid-4 m-top-3 gap-1  category-container">
             {% for category in categories %}
-            <div class="img-category">
-                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
-                <span><a href="{{ path('showPubCat', {'category': category.category}) }}">{{ category.category }}</a></span>
-            </div>
-{#            <div class="img-category">#}
-{#                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />#}
-{#                <span><a href="{{ path('showPubCat', {'category': 'cartonnage'}) }}">Cartonnage</a></span>#}
-{#            </div>#}
-{#            <div class="img-category">#}
-{#                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />#}
-{#                <span><a href="#">Abat-jour</a></span>#}
-{#            </div>#}
-{#            <div class="img-category">#}
-{#                <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />#}
-{#                <span><a href="#">Meuble</a></span>#}
-{#            </div>#}
+            <a href="{{ path('showPubCat', {'category': category.slug}) }}">
+                <div class="img-category">
+                    <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
+                    <span>{{ category.category }}</span>
+                </div>
+            </a>
             {% endfor %}
         </div>
 

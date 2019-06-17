@@ -25,10 +25,11 @@ class ProductPubShowResponder implements ProductPubShowResponderInterface
         $this->twig = $twig;
     }
 
-    public function response(Product $product): Response
+    public function response(Product $product, array $navigations): Response
     {
         return new Response($this->twig->render('public/product.html.twig', [
-            'product' => $product
+            'product' => $product,
+            'navigations' => $navigations
         ]));
     }
 }

@@ -9,7 +9,7 @@
             {% if image.main > 0 %}
                 <div class="product-img-container">
                     <img src="{{ image.path }}" alt="{{ product.title }}" class="img-fluid" />
-                    <a href="{{ path('showProductPub', {'category': category.category | lower, 'slug': product.slug}) }}" class="overlay-img-product">
+                    <a href="{{ path('showProductPub', {'category': category.slug | lower, 'slug': product.slug}) }}" class="overlay-img-product">
                         <div>
                             <span>{{ product.title }}</span>
                         </div>

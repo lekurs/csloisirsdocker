@@ -8,7 +8,7 @@ use App\UI\Responder\Interfaces\PricePubShowResponderInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
-class PricePubShowResponder implements PricePubShowResponderInterface
+final class PricePubShowResponder implements PricePubShowResponderInterface
 {
     private $twig;
 
@@ -21,10 +21,11 @@ class PricePubShowResponder implements PricePubShowResponderInterface
         $this->twig = $twig;
     }
 
-    public function response(array $prices): Response
+    public function response(array $prices, array $navigations): Response
     {
         return new Response($this->twig->render('public/price.html.twig', [
-            'prices' => $prices
+            'prices' => $prices,
+            'navigations' => $navigations
         ]));
     }
 }

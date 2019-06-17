@@ -5,6 +5,7 @@ namespace App\UI\Action\Pub;
 
 
 use App\Domain\Repository\Interfaces\CategoryRepositoryInterfaces;
+use App\Services\Interfaces\NavigationHelperInterface;
 use App\UI\Action\Interfaces\CategoryPubShowActionInterface;
 use App\UI\Responder\Interfaces\CategoryPubShowResponderInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,14 +23,18 @@ final class CategoryPubShowAction implements CategoryPubShowActionInterface
      */
     private $categoryRepo;
 
+    private $navHelper;
+
     /**
      * CategoryPubShowAction constructor.
      *
      * @param CategoryRepositoryInterfaces $categoryRepo
+     * @param $navHelper
      */
-    public function __construct(CategoryRepositoryInterfaces $categoryRepo)
+    public function __construct(CategoryRepositoryInterfaces $categoryRepo, NavigationHelperInterface $navHelper)
     {
         $this->categoryRepo = $categoryRepo;
+        $this->navHelper = $navHelper;
     }
 
     /**
@@ -39,6 +44,8 @@ final class CategoryPubShowAction implements CategoryPubShowActionInterface
     {
         $category = $this->categoryRepo->getOneBySlug($request->attributes->get('category'));
 
-        return $responder->response($category);
+        $navigations = $this->navHelper->showNav();
+
+        return $responder->response($category, $navigations);
     }
 }
