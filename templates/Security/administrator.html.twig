@@ -2,12 +2,25 @@
 
 {% block body %}
     <div class="container">
-        <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="wrapper-grid-container">
+            <div class="text-center">
+                <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="CSLoisirsCréatifs logo" />
+            </div>
+            <h1 class="text-center">Connection à l'administration</h1>
+            <div class="form-container">
                 {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <button type="submit" class="btn btn-dark">Connexion</button>
-                {{ form_end(form) }}
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.username) }}
+                    {{ form_label(form.username) }}
+                </div>
+                <div class="floating-label" style="margin: 2em 0">
+                    {{ form_widget(form.password) }}
+                    {{ form_label(form.password) }}
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-dark">Connexion</button>
+                </div>
+                    {{ form_end(form) }}
             </div>
         </div>
     </div>

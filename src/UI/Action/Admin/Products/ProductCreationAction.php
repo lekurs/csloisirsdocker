@@ -8,6 +8,7 @@ use App\Domain\Form\Products\ProductCreationForm;
 use App\Domain\Handler\Interfaces\ProductCreationFormHandlerInterface;
 use App\UI\Action\Interfaces\ProductCreationActionInterface;
 use App\UI\Responder\Interfaces\ProductCreationResponderInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class ProductCreationAction
  * @Route(name="productCreation", path="admin/product/add")
+ * @Security("has_role('ROLE_ADMIN')")
  */
 final class ProductCreationAction implements ProductCreationActionInterface
 {

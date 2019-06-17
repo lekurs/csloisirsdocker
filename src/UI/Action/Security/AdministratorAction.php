@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class AdministratorAction
+ *
  * @Route(name="administrator", path="/administrator")
  */
 final class AdministratorAction implements AdministratorActionInterface

@@ -8,6 +8,7 @@ use App\Domain\Form\CategoryCreationForm;
 use App\Domain\Handler\Interfaces\CategoryCreationFormHandlerInterface;
 use App\UI\Action\Interfaces\CategoryCreationActionInterface;
 use App\UI\Responder\Interfaces\CategoryCreationResponderInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class CategoryCreationAction
  * @Route(name="categoryAdd", path="admin/category/add")
+ * @Security("has_role('ROLE_ADMIN')")
  */
 final class CategoryCreationAction implements CategoryCreationActionInterface
 {

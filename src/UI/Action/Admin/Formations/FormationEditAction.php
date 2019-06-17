@@ -10,6 +10,7 @@ use App\Domain\Handler\Interfaces\FormationEditFormHandlerInterface;
 use App\Domain\Repository\Interfaces\FormationRepositoryInterface;
 use App\UI\Action\Interfaces\FormationEditActionInterface;
 use App\UI\Responder\Interfaces\FormationEditResponderInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class FormationEditAction
  * @Route(name="formationEdit", path="admin/formation/edit/{slug}")
+ * @Security("has_role('ROLE_ADMIN')")
  */
 final class FormationEditAction implements FormationEditActionInterface
 {

@@ -15,6 +15,7 @@ final class AdministratorResponder implements AdministratorResponderInterface
 
     /**
      * AdministratorResponder constructor.
+     *
      * @param $twig
      */
     public function __construct(Environment $twig)

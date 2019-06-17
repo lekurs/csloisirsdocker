@@ -8,6 +8,7 @@ use App\Domain\Repository\Interfaces\CategoryRepositoryInterfaces;
 use App\Services\Interfaces\SlugHelperInterface;
 use App\UI\Action\Interfaces\CategoryEditActionInterface;
 use App\UI\Responder\Interfaces\CategoryEditResponderInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class CategoryEditAction
  * @Route(name="categoryEdit", path="admin/category/edit/{id}")
+ * @Security("has_role('ROLE_ADMIN')")
  */
 final class CategoryEditAction implements CategoryEditActionInterface
 {
