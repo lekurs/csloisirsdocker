@@ -4,6 +4,7 @@
 namespace App\Domain\Handler\Interfaces;
 
 
+use App\Services\Interfaces\MailerHelperInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -15,8 +16,9 @@ interface ReceiveContactFormHandlerInterface
      *
      * @param SessionInterface $session
      * @param ValidatorInterface $validator
+     * @param MailerHelperInterface $mailerHelper
      */
-    public function __construct(SessionInterface $session, ValidatorInterface $validator);
+    public function __construct(SessionInterface $session, ValidatorInterface $validator, MailerHelperInterface $mailerHelper);
 
     /**
      * @param FormInterface $form

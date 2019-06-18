@@ -29,7 +29,7 @@ class MailerHelper implements MailerHelperInterface
         $this->twig = $twig;
     }
 
-    public function contactEnter(ReceiveNewContactDTO $contactDTO): void
+    public function receiveContact(ReceiveNewContactDTO $contactDTO): void
     {
         $message = new \Swift_Message();
 
@@ -37,7 +37,7 @@ class MailerHelper implements MailerHelperInterface
             ->setSubject('Vous avez reçu une nouvelle demande de renseignements de : ' . $contactDTO->name)
             ->setTo($this->mailerAdminEmail)
             ->setFrom($contactDTO->email)
-            ->setBody($this->twig->render('Message/contact-enter.html.twig', [
+            ->setBody($this->twig->render('Message/receive-contact.html.twig', [
                 'informations' => $contactDTO
             ]));
 

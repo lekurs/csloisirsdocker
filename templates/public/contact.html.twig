@@ -34,7 +34,7 @@
         {% form_theme form 'bootstrap/custom-checkbox-theme.html.twig' %}
         {% block checkbox_widget %}
         <div>
-
+            {{ form_errors(form.rgpd) }}
         </div>
         {% endblock %}
         <div>

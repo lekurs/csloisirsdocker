@@ -72,7 +72,8 @@ class ReceiveNewContactForm extends AbstractType
                     $form->get('lastName')->getData(),
                     $form->get('phone')->getData(),
                     $form->get('email')->getData(),
-                    $form->get('message')->getData()
+                    $form->get('message')->getData(),
+                    $form->get('rgpd')->getData()
                 );
             }
             ]);

@@ -5,6 +5,7 @@ namespace App\Domain\Handler\Message;
 
 
 use App\Domain\Handler\Interfaces\ReceiveContactFormHandlerInterface;
+use App\Services\Interfaces\MailerHelperInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -15,15 +16,18 @@ class ReceiveContactFormHandler implements ReceiveContactFormHandlerInterface
 
     private $validator;
 
+    private $mailerHelper;
+
     /**
      * ReceiveContactFormHandler constructor.
      *
      * @inheritDoc
      */
-    public function __construct(SessionInterface $session, ValidatorInterface $validator)
+    public function __construct(SessionInterface $session, ValidatorInterface $validator, MailerHelperInterface $mailerHelper)
     {
         $this->session = $session;
         $this->validator = $validator;
+        $this->mailerHelper = $mailerHelper;
     }
 
     /**
@@ -33,15 +37,11 @@ class ReceiveContactFormHandler implements ReceiveContactFormHandlerInterface
     {
         if ($form->isSubmitted() && $form->isValid()) {
 
-            if ($form->getData()->rgpd === []) {
+        $this->session->getFlashBag()->add('success', 'Votre demande de contact à bien été prise en compte');
 
-                return false;
-            } else {
+        $this->mailerHelper->receiveContact($form->getData());
 
-            }
-                $this->session->getFlashBag()->add('success', 'Votre demande de contact à bien été prise en compte');
-
-            return true;
+        return true;
         }
 
         return false;

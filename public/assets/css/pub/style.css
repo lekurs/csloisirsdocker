@@ -99,7 +99,7 @@ ul.nav {
 }
 
 img#logo {
-    width: 75%;
+    width: 40%;
 }
 
 .scroll-down-header {
@@ -279,6 +279,12 @@ nav#mobile-nav {
 @media all and (min-width: 1024px) and (max-width: 1200px) {
     .nav-link {
         padding: .5rem 3rem !important;
+    }
+}
+
+@media all and (min-width: 1200px) and (max-width: 1400px) {
+    img#logo {
+        width: 50%;
     }
 }
 

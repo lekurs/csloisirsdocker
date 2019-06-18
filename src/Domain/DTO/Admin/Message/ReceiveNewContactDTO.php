@@ -22,11 +22,12 @@ final class ReceiveNewContactDTO implements ReceiveNewContactDTOInterface
 
     /**
      * ReceiveNewContactDTO constructor.
-     * @param $name
-     * @param $lastName
-     * @param $phone
-     * @param $email
-     * @param $message
+     * @param string $name
+     * @param string $lastName
+     * @param string $phone
+     * @param string $email
+     * @param string $message
+     * @param array $rpgd
      */
     public function __construct(
         string $name,
