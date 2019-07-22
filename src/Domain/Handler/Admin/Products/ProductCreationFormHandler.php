@@ -106,6 +106,9 @@ final class ProductCreationFormHandler implements ProductCreationFormHandlerInte
                 }
             }
 
+            //Fixe la première image comme favorite si plusieurs images enregistrées afin d'éviter de rééditer le produit
+            $imgTab[0]->updateMainImage(true);
+
             $product = $this->productFactory->create(
                 $form->getData()->title,
                 $form->getData()->description,
