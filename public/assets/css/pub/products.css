@@ -76,6 +76,12 @@ H1 {
     }
 }
 
+@media (max-width: 1024px) {
+    .product-img-container {
+        height: inherit;
+    }
+}
+
 /** /PRODUCTS CATEGORY **/
 
 /** PRODUCT **/
