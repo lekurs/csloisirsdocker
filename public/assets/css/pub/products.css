@@ -65,9 +65,13 @@ H1 {
 }
 
 @media (min-width: 768px) {
-    /*.product-grid-container {*/
-    /*    grid-template-columns: repeat(2, 1fr);*/
-    /*}*/
+    .product-grid-img-container {
+        display: block !important;
+    }
+
+    .product-container {
+        display: block !important;
+    }
 }
 
 @media (min-width: 992px) {
