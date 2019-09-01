@@ -155,3 +155,7 @@ img.slide-img {
 }
 
 /** /SLICKS **/
+
+main {
+    width: 100% !important;
+}
