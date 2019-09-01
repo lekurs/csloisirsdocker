@@ -137,6 +137,12 @@ img.slide-img {
     .product-details-container {
         order: -1;
     }
+
+    .wrapper-grid-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 /** SLICKS **/
