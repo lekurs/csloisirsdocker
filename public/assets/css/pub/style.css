@@ -137,12 +137,14 @@ nav#mobile-nav {
     }
 
     nav#mobile-nav {
-        display: block;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         height: 50px;
         z-index: 9999;
         position: fixed;
-        right: 0;
-        top: 15px;
+        width: 100%;
+        /*background-color: #ffffff;*/
     }
 
     .nav-mobile-content {
