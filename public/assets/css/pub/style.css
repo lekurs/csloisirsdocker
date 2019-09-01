@@ -169,6 +169,7 @@ nav#mobile-nav {
 
     .logo-nav-mobile {
         width: 30%;
+        text-align: center;
     }
 
     .nav-mobile-list-container li {
