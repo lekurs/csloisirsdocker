@@ -142,8 +142,8 @@ nav#mobile-nav {
         align-items: center;
         height: 50px;
         z-index: 9999;
-        position: fixed;
-        width: 100%;
+        position: absolute;
+        /*width: 100%;*/
         /*background-color: #ffffff;*/
     }
 
