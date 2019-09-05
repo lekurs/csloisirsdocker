@@ -356,6 +356,10 @@ h2#stage-title::after, H2#learn::after {
     margin-top: 1em;
 }
 
+img#img-apprendre {
+    object-position: 24%;
+}
+
 .category-container {
     grid-template-rows: repeat(1, minmax(200px, 1fr));
 }
