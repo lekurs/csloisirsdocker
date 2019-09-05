@@ -53,7 +53,7 @@
             {% for category in categories %}
             <a href="{{ path('showPubCat', {'category': category.slug}) }}">
                 <div class="img-category">
-                    <img src="{{ asset('assets/images/new-york-city-801867_1920.jpg') }}" class="img-fluid" alt="test1" />
+                    <img src="{{ asset('assets/images/category/' ~ category.slug ~ '.jpg') }}" class="img-fluid" alt="{{category.category}}" />
                     <span>{{ category.category }}</span>
                 </div>
             </a>
