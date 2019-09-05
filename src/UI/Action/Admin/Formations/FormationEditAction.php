@@ -66,6 +66,7 @@ final class FormationEditAction implements FormationEditActionInterface
             $formation->getStartDate(),
             $formation->getEndDate(),
             $formation->getTitle(),
+            $formation->getDescription(),
             $formation->getArea(),
             $formation->getSlug(),
             $formation->getPrice(),
