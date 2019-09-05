@@ -22,7 +22,7 @@ CSLoisirsCréatifs - Stages
                     <div class="formation-details{%  if loop.index is divisible by (2) %} divisible {% endif %}">
                         <h2>{{ formation.title }}</h2>
                         <p>{{ formation.description | nl2br}}</p>
-                        <p>Prix de la formaiton : {{ formation.price }} €</p>
+                        <p>Prix de la formation : {{ formation.price }} €</p>
                         {% if formation.availableSeats is not null %}
                         <p><strong>Nombre de places disponible : {{ formation.availableSeats }}</strong></p>
                         {% endif %}
