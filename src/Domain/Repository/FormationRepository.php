@@ -38,6 +38,7 @@ class FormationRepository extends ServiceEntityRepository implements FormationRe
                                 ->leftJoin('formation.area', 'area')
                                 ->where('formation.endDate > :now')
                                 ->setParameter('now', new \DateTime('now'))
+                                ->orderBy('formation.startDate', 'ASC')
                                 ->getQuery()
                                 ->getResult();
     }

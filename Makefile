@@ -3,7 +3,7 @@ DOCKER_COMPOSE = docker-compose
 DOCKER = docker
 
 ## Environments
-ENV_PHP = $(DOCKER) exec -it carmanager_php_1
+ENV_PHP = $(DOCKER) exec -it csloisirs_php_1
 
 # Tools
 COMPOSER = $(ENV_PHP) composer
