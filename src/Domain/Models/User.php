@@ -70,7 +70,7 @@ class User implements UserInterface
     /**
      * @return Uuid
      */
-    public function getId(): Uuid
+    public function getId()
     {
         return $this->id;
     }
