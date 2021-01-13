@@ -23,13 +23,12 @@
                     {% for formation in area %}
                         <h4>{{ formation.title }}</h4>
                         <p>{{ formation.description }}</p>
-                        <p>- <strong>Du {{ formation.startDate|localizeddate('none', 'none', 'fr', null, 'EEEE d MMMM Y') }} au {{ formation.endDate|localizeddate('none', 'none', 'fr', null, 'EEEE d MMMM Y') }}</strong></p>
+			<p>- <strong>Du {{formation.startDate|date('d /m/Y') }} au {{ formation.endDate|date('d/m/Y') }}</strong></p>
                     {% endfor %}
                     </div>
                 {% endfor %}
             </div>
         </div>
-
         <div class="gifts-container">
             <p><i class="fas fa-gifts fa-2x"></i> </p>
             <h2>chèque cadeau</h2>

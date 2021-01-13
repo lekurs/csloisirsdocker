@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminAction
  * @Route(name="admin", path="/admin")
- * @IsGranted("ROLE_ADMIN")
+ * @IsGranted('ROLE_ADMIN')
  * 
  */
 class AdminAction implements AdminActionInterface

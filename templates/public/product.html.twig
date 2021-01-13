@@ -5,10 +5,11 @@
         <div  class="product-container m-top-3">
             <div class="product-grid-img-container">
                 <div>
-                    {% for image in product.images if image.main > 0 %}
+		{% for image in product.images %} 
+                      {% if image.main > 0 %}
                             <img src="{{ image.path }}" alt="{{ product.title }}" class="img-fluid main-image" />
-                    {% endfor %}
-                </div>
+                      {% endif %}
+                    {% endfor %}                </div>
                 <div class="small-img-container">
                     <div class="slick-test">
                         {% for image in product.images %}
