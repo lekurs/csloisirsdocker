@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Domain\DTO\Admin\Message\ReceiveNewContactDTO;
 use App\Services\Interfaces\MailerHelperInterface;
+use Swift_Message;
 use Twig\Environment;
 
 class MailerHelper implements MailerHelperInterface
@@ -31,7 +32,7 @@ class MailerHelper implements MailerHelperInterface
 
     public function receiveContact(ReceiveNewContactDTO $contactDTO): void
     {
-        $message = new \Swift_Message();
+        $message = new Swift_Message();
 
         $message
             ->setSubject('Vous avez reçu une nouvelle demande de renseignements de : ' . $contactDTO->name)
