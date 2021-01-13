@@ -8,7 +8,7 @@ use App\Domain\Models\Image;
 use App\Domain\Models\Product;
 use App\Domain\Repository\Interfaces\ProductRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 
 class ProductRepository extends ServiceEntityRepository implements ProductRepositoryInterface
 {
