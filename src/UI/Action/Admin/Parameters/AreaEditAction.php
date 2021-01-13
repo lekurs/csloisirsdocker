@@ -10,7 +10,7 @@ use App\Domain\Handler\Interfaces\AreaEditFormHandlerInterface;
 use App\Domain\Repository\Interfaces\AreaRepositoryInterface;
 use App\UI\Action\Interfaces\AreaEditActionInterface;
 use App\UI\Responder\Interfaces\AreaEditResponderInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AreaEditAction
  * @Route(name="areaEdit", path="admin/area/edit/{id}")
- * @Security("has_role('ROLE_ADMIN')")
+ * @IsGranted("ROLE_ADMIN")
  */
 final class AreaEditAction implements AreaEditActionInterface
 {

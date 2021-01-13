@@ -7,16 +7,16 @@ namespace App\UI\Action\Admin\Formations;
 use App\Domain\Handler\Interfaces\FormationDeleteActionInterface;
 use App\Domain\Repository\Interfaces\FormationRepositoryInterface;
 use App\UI\Responder\Interfaces\FormationDeleteResponderInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * Class FormationDeleteAction
  * @Route(name="formationDelete", path="admin/formation/delete/{id}")
- * @Security("has_role('ROLE_ADMIN')")
+ * @IsGranted("ROLE_ADMIN")
  */
 final class FormationDeleteAction implements FormationDeleteActionInterface
 {

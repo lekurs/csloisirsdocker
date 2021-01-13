@@ -8,13 +8,13 @@ use App\Domain\Repository\Interfaces\CategoryRepositoryInterfaces;
 use App\Domain\Repository\Interfaces\ProductRepositoryInterface;
 use App\UI\Action\Interfaces\ProductShowActionInterface;
 use App\UI\Responder\Interfaces\ProductShowResponderInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class ProductShowAction
  * @Route(name="productShow", path="admin/products/show")
- * @Security("has_role('ROLE_ADMIN')")
+ * @IsGranted("ROLE_ADMIN")
  */
 class ProductShowAction implements ProductShowActionInterface
 {

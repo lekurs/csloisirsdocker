@@ -7,7 +7,7 @@ namespace App\UI\Action\Admin\Products;
 use App\Domain\Repository\Interfaces\ProductRepositoryInterface;
 use App\UI\Action\Interfaces\ProductDeleteActionInterface;
 use App\UI\Responder\Interfaces\ProductDeleteResponderInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class ProductDeleteAction
  * @Route(name="productDelete", path="admin/product/del/{id}")
- * @Security("has_role('ROLE_ADMIN')")
+ * @IsGranted("ROLE_ADMIN")
  */
 final class ProductDeleteAction implements ProductDeleteActionInterface
 {

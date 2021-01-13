@@ -4,13 +4,11 @@
 namespace App\UI\Action\Admin\Formations;
 
 
-use App\Domain\Factory\Interfaces\FormationFactoryInterface;
 use App\Domain\Form\Formations\FormationCreationForm;
 use App\Domain\Handler\Interfaces\FormationCreationFormHandlerInterface;
-use App\Domain\Repository\Interfaces\FormationRepositoryInterface;
 use App\UI\Action\Interfaces\FormationCreationActionInterface;
 use App\UI\Responder\Interfaces\FormationCreationResponderInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class FormationCreationAction
  * @Route(name="formationCreation", path="admin/formation/add")
- * @Security("has_role('ROLE_ADMIN')")
+ * @IsGranted("ROLE_ADMIN")
  */
 final class FormationCreationAction implements FormationCreationActionInterface
 {

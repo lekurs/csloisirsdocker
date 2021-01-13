@@ -10,7 +10,7 @@ use App\Domain\Handler\Interfaces\ProductEditFormHandlerInterface;
 use App\Domain\Repository\Interfaces\ProductRepositoryInterface;
 use App\UI\Action\Interfaces\ProductEditActionInterface;
 use App\UI\Responder\Interfaces\ProductEditResponderInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class ProductEditAction
  * @Route(name="productEdit", path="admin/product/edit/{slug}")
- * @Security("has_role('ROLE_ADMIN')")
+ * @IsGranted("ROLE_ADMIN")
  */
 final class ProductEditAction implements ProductEditActionInterface
 {

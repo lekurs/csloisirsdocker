@@ -8,7 +8,7 @@ use App\Domain\Repository\Interfaces\ImageRepositoryInterface;
 use App\Domain\Repository\Interfaces\ProductRepositoryInterface;
 use App\UI\Action\Interfaces\ImageProductAddOnUpdateActionInterface;
 use App\UI\Responder\Interfaces\ImageProductAddOnUpdateResponderInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * Class ImageProductAddOnUpdateAction
  *
  * @Route(name="imageAdd", path="admin/product/image/add/product/{productId}")
- * @Security("has_role('ROLE_ADMIN')")
+ * @IsGranted("ROLE_ADMIN")
  */
 final class ImageProductAddOnUpdateAction implements ImageProductAddOnUpdateActionInterface
 {

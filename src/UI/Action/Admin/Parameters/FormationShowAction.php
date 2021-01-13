@@ -7,7 +7,7 @@ namespace App\UI\Action\Admin\Parameters;
 use App\Domain\Repository\Interfaces\FormationRepositoryInterface;
 use App\UI\Action\Interfaces\FormationShowActionInterface;
 use App\UI\Responder\Interfaces\FormationShowResponderInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class FormationShowAction
  * @Route(name="formationShow", path="admin/formation/show")
- * @Security("has_role('ROLE_ADMIN')")
+ * @IsGranted("ROLE_ADMIN")
  */
 final class FormationShowAction implements FormationShowActionInterface
 {

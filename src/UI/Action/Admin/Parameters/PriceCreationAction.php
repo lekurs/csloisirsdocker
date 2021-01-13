@@ -8,7 +8,7 @@ use App\Domain\Form\Prices\PriceCreationForm;
 use App\Domain\Handler\Interfaces\PriceCreationHandlerInterface;
 use App\UI\Action\Interfaces\PriceCreationActionInterface;
 use App\UI\Responder\Interfaces\PriceCreationResponderInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class PriceCreationAction
  * @Route(name="priceCreation", path="admin/prix/add")
- * @Security("has_role('ROLE_ADMIN')")
+ * @IsGranted("ROLE_ADMIN")
  */
 final class PriceCreationAction implements PriceCreationActionInterface
 {
