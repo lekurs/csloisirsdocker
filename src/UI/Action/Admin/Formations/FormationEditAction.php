@@ -19,7 +19,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 /**
  * Class FormationEditAction
  * @Route(name="formationEdit", path="admin/formation/edit/{slug}")
- * @IsGranted('ROLE_ADMIN')
+ * @IsGranted("ROLE_ADMIN")
  */
 final class FormationEditAction implements FormationEditActionInterface
 {

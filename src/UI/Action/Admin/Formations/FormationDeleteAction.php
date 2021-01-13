@@ -16,7 +16,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 /**
  * Class FormationDeleteAction
  * @Route(name="formationDelete", path="admin/formation/delete/{id}")
- * @IsGranted('ROLE_ADMIN')
+ * @IsGranted("ROLE_ADMIN")
  */
 final class FormationDeleteAction implements FormationDeleteActionInterface
 {

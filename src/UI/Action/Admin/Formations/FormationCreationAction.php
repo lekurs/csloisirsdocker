@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class FormationCreationAction
  * @Route(name="formationCreation", path="admin/formation/add")
- * @IsGranted('ROLE_ADMIN')
+ * @IsGranted("ROLE_ADMIN")
  */
 final class FormationCreationAction implements FormationCreationActionInterface
 {
